@@ -93,7 +93,6 @@ public class LoginActivity extends AppCompatActivity {
         try{
             mGoogleSignInAccount = completedTask.getResult(ApiException.class);
             if(!validateEmail(mGoogleSignInAccount.getEmail())){
-
                 signOut();
                 Toast.makeText(this,"Please Login with the School Email", Toast.LENGTH_LONG).show();
             }
