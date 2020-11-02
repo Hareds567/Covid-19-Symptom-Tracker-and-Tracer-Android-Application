@@ -28,15 +28,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
 public class MainActivity extends AppCompatActivity  {
-    private GoogleSignInOptions gso;
-    private GoogleSignInAccount mGoogleSignInAccount;
-    private GoogleSignInClient mGoogleSignInClient;
-    private GoogleSignInResult mGoogleSignInResult;
 
-    private TextView name_TextView;
-    private TextView email_TextView;
-    private TextView userType_TextView;
-    private Button signOut_Btn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
