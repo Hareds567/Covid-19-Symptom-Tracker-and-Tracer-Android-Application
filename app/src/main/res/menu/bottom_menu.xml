@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/covidData"
+        android:title="COVID DATA"
+        android:icon="@drawable/ic_covid_data_bottom"/>
+    <item
+        android:id="@+id/myCovidData"
+        android:title="MY COVID DATA"
+        android:icon="@drawable/ic_my_covid_data_bottom"/>
+    <item
+        android:id="@+id/appSettings"
+        android:title="APP SETTINGS"
+        android:icon="@drawable/ic_app_settings_bottom"/>
+</menu>
