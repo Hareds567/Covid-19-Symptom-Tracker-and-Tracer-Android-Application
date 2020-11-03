@@ -92,10 +92,10 @@ public class LoginActivity extends AppCompatActivity {
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask){
         try{
             mGoogleSignInAccount = completedTask.getResult(ApiException.class);
-            if(!validateEmail(mGoogleSignInAccount.getEmail())){
+            /*if(!validateEmail(mGoogleSignInAccount.getEmail())){
                 signOut();
                 Toast.makeText(this,"Please Login with the School Email", Toast.LENGTH_LONG).show();
-            }
+            }*/
         }catch (ApiException e){
             //Log.w(TAG, "signInResult:failed code=" + e.getStatusCode());
         }
