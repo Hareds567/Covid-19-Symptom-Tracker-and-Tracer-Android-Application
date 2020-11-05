@@ -34,7 +34,7 @@
         android:id="@+id/myCovidData_Btn"
         android:layout_width="347dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         android:background="#FAF1E4"
         android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24"
         android:gravity="start"
@@ -49,13 +49,13 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/updateInfoBtn_Setting" />
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <Button
         android:id="@+id/updateInfoBtn_Setting"
         android:layout_width="347dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="16dp"
         android:background="#FAF1E4"
         android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24"
         android:gravity="start"
@@ -76,7 +76,7 @@
         android:id="@+id/helpImprove_btn"
         android:layout_width="347dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="16dp"
         android:background="#FAF1E4"
         android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24"
         android:gravity="start"
@@ -95,11 +95,9 @@
 
     <Button
         android:id="@+id/button15"
-        android:layout_width="0dp"
+        android:layout_width="347dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="156dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginTop="12dp"
         android:background="#FAF1E4"
         android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24"
         android:gravity="start"
@@ -113,17 +111,14 @@
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/updateInfoBtn_Setting" />
 
     <Button
         android:id="@+id/button16"
-        android:layout_width="0dp"
+        android:layout_width="347dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginTop="12dp"
         android:background="#FAF1E4"
         android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24"
         android:gravity="start"
@@ -137,17 +132,14 @@
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button15" />
+        app:layout_constraintTop_toBottomOf="@+id/myCovidData_Btn" />
 
     <Button
         android:id="@+id/button17"
-        android:layout_width="0dp"
+        android:layout_width="347dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
         android:background="#FAF1E4"
         android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24"
         android:gravity="start"
@@ -161,17 +153,14 @@
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/myCovidData_Btn" />
+        app:layout_constraintTop_toBottomOf="@+id/button15" />
 
     <Button
         android:id="@+id/button18"
-        android:layout_width="0dp"
+        android:layout_width="347dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="124dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginTop="32dp"
         android:background="#FAF1E4"
         android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24"
         android:gravity="start"
@@ -185,7 +174,6 @@
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button17" />
+        app:layout_constraintTop_toBottomOf="@+id/helpImprove_btn" />
 </androidx.constraintlayout.widget.ConstraintLayout>

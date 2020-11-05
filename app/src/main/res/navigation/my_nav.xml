@@ -9,16 +9,37 @@
         android:id="@+id/covidData"
         android:name="com.example.logindemo2.CovidData"
         android:label="fragment_user_covid_data"
-        tools:layout="@layout/fragment_covid_data" />
+        tools:layout="@layout/fragment_covid_data" >
+        <action
+            android:id="@+id/action_covidData_to_myCovidData2"
+            app:destination="@id/myCovidData" />
+        <action
+            android:id="@+id/action_covidData_to_appSettings2"
+            app:destination="@id/appSettings" />
+    </fragment>
     <fragment
         android:id="@+id/myCovidData"
         android:name="com.example.logindemo2.UserCovidData"
         android:label="fragment_my_covid_data"
-        tools:layout="@layout/fragment_user_covid_data" />
+        tools:layout="@layout/fragment_user_covid_data" >
+        <action
+            android:id="@+id/action_myCovidData_to_appSettings2"
+            app:destination="@id/appSettings" />
+        <action
+            android:id="@+id/action_myCovidData_to_covidData2"
+            app:destination="@id/covidData" />
+    </fragment>
 
     <fragment
         android:id="@+id/appSettings"
         android:name="com.example.logindemo2.AppSettings"
         android:label="fragment_app_settings"
-        tools:layout="@layout/fragment_app_settings" />
+        tools:layout="@layout/fragment_app_settings" >
+        <action
+            android:id="@+id/action_appSettings_to_myCovidData2"
+            app:destination="@id/myCovidData" />
+        <action
+            android:id="@+id/action_appSettings_to_covidData"
+            app:destination="@id/covidData" />
+    </fragment>
 </navigation>

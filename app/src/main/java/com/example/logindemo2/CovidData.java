@@ -114,8 +114,8 @@ public class CovidData extends Fragment {
     public void onStart() {
         super.onStart();
         GoogleSignInAccount acc = GoogleSignIn.getLastSignedInAccount(getActivity());
-        String text = acc.getDisplayName() + " " + acc.getEmail();
-        test_textView.setText(text);
+        //String text = acc.getDisplayName() + " " + acc.getEmail();
+        //test_textView.setText(text);
 
     }
 }

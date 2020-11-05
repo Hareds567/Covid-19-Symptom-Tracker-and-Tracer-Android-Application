@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -24,6 +25,7 @@ import java.util.regex.Pattern;
 public class LoginActivity extends AppCompatActivity {
     private static Pattern VALID_EMAIL_ADDRESS_REGEX = Pattern.compile("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(oswego)\\.edu$") ;
     private static final int SIGN_IN = 1;
+    private static final String TAG = "Fail";
 
 
     private GoogleSignInOptions gso;
@@ -83,21 +85,26 @@ public class LoginActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == SIGN_IN){
+
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
-            handleSignInResult(task);
-            goToHomeActivity();
+
+            if(task.isSuccessful()) {
+                handleSignInResult(task);
+            }
         }
     }
 
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask){
         try{
             mGoogleSignInAccount = completedTask.getResult(ApiException.class);
-            /*if(!validateEmail(mGoogleSignInAccount.getEmail())){
+            if(!validateEmail(mGoogleSignInAccount.getEmail())){
                 signOut();
                 Toast.makeText(this,"Please Login with the School Email", Toast.LENGTH_LONG).show();
-            }*/
+            }else{
+                goToHomeActivity();
+            }
         }catch (ApiException e){
-            //Log.w(TAG, "signInResult:failed code=" + e.getStatusCode());
+            Log.w(TAG, "signInResult:failed code=" + e.getStatusCode());
         }
     }
     private void goToHomeActivity(){
@@ -108,8 +115,8 @@ public class LoginActivity extends AppCompatActivity {
         mGoogleSignInClient.signOut().addOnCompleteListener(this, new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
-                startActivity(new Intent(LoginActivity.this, LoginActivity.class));
-                finish();
+                //startActivity(new Intent(LoginActivity.this, LoginActivity.class));
+                //finish();
             }
         });
     }
