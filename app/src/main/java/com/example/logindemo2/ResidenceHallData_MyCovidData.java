@@ -79,13 +79,6 @@ public class ResidenceHallData_MyCovidData extends Fragment {
         mGoogleSignInAccount = GoogleSignIn.getLastSignedInAccount(getActivity());
         userGmail  = mGoogleSignInAccount.getEmail();
 
-        //MongoReader mongoReader = new MongoReader(userGmail);
-        //mongoReader.AddToStudentCollection();
-
-
-
-        //String residence = mongoReader.Residence;
-
         displayResidence_TextView = rootView.findViewById(R.id.displayResidence_TextView);
         displayResidence_TextView.setText(userGmail);
         return rootView;

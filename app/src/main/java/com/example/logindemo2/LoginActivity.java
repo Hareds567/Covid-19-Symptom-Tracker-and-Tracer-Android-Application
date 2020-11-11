@@ -23,16 +23,16 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class LoginActivity extends AppCompatActivity {
+    //Regex that checks for Oswego school email format
     private static Pattern VALID_EMAIL_ADDRESS_REGEX = Pattern.compile("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(oswego)\\.edu$") ;
+    //Static variables used for Google Login
     private static final int SIGN_IN = 1;
     private static final String TAG = "Fail";
-
-
+    //Variables that are used to connect to Google API
     private GoogleSignInOptions gso;
     private GoogleSignInClient mGoogleSignInClient;
     private GoogleSignInAccount mGoogleSignInAccount;
-
-
+    //Setting up Button
     private SignInButton signInButton;
 
 
@@ -43,10 +43,10 @@ public class LoginActivity extends AppCompatActivity {
 
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
         mGoogleSignInClient = GoogleSignIn.getClient(this,gso);
-
+        //Connect Buttons and their xml content using ID
         signInButton = findViewById(R.id.sign_in_button);
         signInButton.setSize(SignInButton.SIZE_STANDARD);
-
+        //Add click listeners to buttons
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -85,19 +85,17 @@ public class LoginActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == SIGN_IN){
-
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
-
             if(task.isSuccessful()) {
                 handleSignInResult(task);
             }
         }
     }
-
+    //Handles SignIn Results, after login do something
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask){
         try{
             mGoogleSignInAccount = completedTask.getResult(ApiException.class);
-            if(!validateEmail(mGoogleSignInAccount.getEmail())){
+            if(!validateEmail(mGoogleSignInAccount.getEmail())){ //if email does not match the regex sign out and display a message on the screen
                 signOut();
                 Toast.makeText(this,"Please Login with the School Email", Toast.LENGTH_LONG).show();
             }else{
@@ -107,19 +105,21 @@ public class LoginActivity extends AppCompatActivity {
             Log.w(TAG, "signInResult:failed code=" + e.getStatusCode());
         }
     }
+    //Change to Main Activity and end the life cycle of LoginActivity
     private void goToHomeActivity(){
         startActivity(new Intent(LoginActivity.this, MainActivity.class));
         finish();
     }
+    //SignOut the user
     private void signOut(){
         mGoogleSignInClient.signOut().addOnCompleteListener(this, new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
-                //startActivity(new Intent(LoginActivity.this, LoginActivity.class));
-                //finish();
+
             }
         });
     }
+    //Checks if emails format matches with the regular expression
     public static boolean validateEmail(String email){
         Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(email);
         return matcher.find();

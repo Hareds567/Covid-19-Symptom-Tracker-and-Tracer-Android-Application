@@ -20,43 +20,26 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 
 import org.w3c.dom.Text;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link CovidData#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class CovidData extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    //
+    //Set up static variables
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private static final String TAG = "Test" ;
     private static final String WEBSITE_SURVEY_URL ="https://oswego.medicatconnect.com/login.aspx";
     private static final String WEBSITE_INFO_URL ="https://ww1.oswego.edu/oswego-forward/covid-19-dashboard";
-    // TODO: Rename and change types of parameters
+
     private String mParam1;
     private String mParam2;
-
-    private GoogleSignInAccount mGoogleSignInAccount;
-    private GoogleSignInOptions gso;
-    private GoogleSignInClient mGoogleSignInClient;
+    //Instances of TextViews and Buttons
     private TextView test_textView;
-    private Button dailySurveyBtn;
-    private Button covidInfoBtn;
 
     public CovidData() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment CovidData.
-     */
     // TODO: Rename and change types and number of parameters
     public static CovidData newInstance(String param1, String param2) {
         CovidData fragment = new CovidData();
@@ -81,13 +64,15 @@ public class CovidData extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
             final View rootView = inflater.inflate(R.layout.fragment_covid_data, null);
-
-            gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
-            mGoogleSignInClient = GoogleSignIn.getClient(getActivity(),gso);
+        //Connect to Google API
+        //Variables needed to connect to Google API
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
+        GoogleSignInClient mGoogleSignInClient = GoogleSignIn.getClient(getActivity(), gso);
+        //Connect Buttons and TextView and their xml content using ID
             test_textView = rootView.findViewById(R.id.test_textView);
-            dailySurveyBtn = rootView.findViewById(R.id.DailySurveyBtn_CovidData);
-            covidInfoBtn = rootView.findViewById(R.id.CovidInfoBtn_CovidData);
-
+        Button dailySurveyBtn = rootView.findViewById(R.id.DailySurveyBtn_CovidData);
+        Button covidInfoBtn = rootView.findViewById(R.id.CovidInfoBtn_CovidData);
+        //Add click listeners to buttons
              dailySurveyBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -113,9 +98,11 @@ public class CovidData extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+        // Get user Login Information and display their name and gmail;
+        // This is not going to be in the last version of the app
         GoogleSignInAccount acc = GoogleSignIn.getLastSignedInAccount(getActivity());
-        //String text = acc.getDisplayName() + " " + acc.getEmail();
-        //test_textView.setText(text);
+        String text = acc.getDisplayName() + " " + acc.getEmail();
+        test_textView.setText(text);
 
     }
 }

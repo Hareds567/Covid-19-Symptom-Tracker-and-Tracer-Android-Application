@@ -44,25 +44,6 @@ public class MainActivity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
         BottomNavigationView mBottomNavigationView  = findViewById(R.id.bottomNavigationView);
-        //MongoDB Setup
-       /* Realm.init(this);
-        String appID = "application-1-ykqdi";
-        app = new App(new AppConfiguration.Builder(appID).build());
-        Credentials credentials = Credentials.anonymous();
-        app.loginAsync(credentials, result -> {
-            if(result.isSuccess()){
-                Log.v("QUICKSTART", "Successfully authenticated anonymously.");
-                User user = app.currentUser();
-                String partitionValue = "Gmail";
-                SyncConfiguration config = new SyncConfiguration.Builder(user, partitionValue).build();
-                uiThreadRealm = Realm.getInstance(config);
-
-            }else {
-                Log.e("QUICKSTART", "Failed to log in. Error: " + result.getError());
-            }
-        });
-        */
-
 
         //Navigation Setup
         AppBarConfiguration appBarConfiguration  = new AppBarConfiguration.Builder(R.id.covidData, R.id.myCovidData, R.id.appSettings).build();
@@ -70,5 +51,4 @@ public class MainActivity extends AppCompatActivity  {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(mBottomNavigationView, navController);
     }
-
 }

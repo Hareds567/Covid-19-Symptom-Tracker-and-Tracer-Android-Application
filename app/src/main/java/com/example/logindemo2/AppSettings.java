@@ -10,11 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link AppSettings#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class AppSettings extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
@@ -34,14 +30,6 @@ public class AppSettings extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment AppSettings.
-     */
     // TODO: Rename and change types and number of parameters
     public static AppSettings newInstance(String param1, String param2) {
         AppSettings fragment = new AppSettings();
@@ -66,12 +54,12 @@ public class AppSettings extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         final View rootView = inflater.inflate(R.layout.fragment_app_settings, container, false);
-
+        //Connect Buttons and their xml content using ID
         myCovidData_Btn = rootView.findViewById(R.id.myCovidData_Btn);
         updateInfo_Btn = rootView.findViewById(R.id.updateInfoBtn_Setting);
         helpImprove_btn = rootView.findViewById(R.id.helpImprove_btn);
 
-
+        //Set click listeners for buttons: When a button gets clicked do something that is inside the onclick method
         myCovidData_Btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -98,7 +86,7 @@ public class AppSettings extends Fragment {
                 manager.beginTransaction().replace(R.id.nav_host_fragment, submitFeedback_setting, submitFeedback_setting.getTag()).commit();
             }
         });
-
+        //build the view
         return rootView;
     }
 }
