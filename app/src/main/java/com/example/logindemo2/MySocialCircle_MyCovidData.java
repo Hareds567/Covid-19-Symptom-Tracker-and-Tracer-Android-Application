@@ -100,9 +100,9 @@ public class MySocialCircle_MyCovidData extends Fragment {
                     System.out.println(jArray.toString());
                     for(int i = 0; i < jArray.length();i++){
                         gmails.add(jArray.get(i).toString());
-                        DisplayedBoxes.get(i).setText(gmails.get(i));
+                        //DisplayedBoxes.get(i).setText(gmails.get(i));
                     }
-                    displayEmails();
+                    displayEmails(gmails);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -127,19 +127,15 @@ public class MySocialCircle_MyCovidData extends Fragment {
                 if(tempList.size()<9){
                     tempList.add(newGmail.getText().toString());
                 }
-                for(int i =0 ; i<gmails.size();i++){
-                    String s = gmails.get(i);
-                    DisplayedBoxes.get(i).setText(s);
-                }
-
+                displayEmails(tempList);
             }
         });
         return screen;
     }
 
-    public void displayEmails() {
-        for(int i =0 ; i<gmails.size();i++){
-            String s = gmails.get(i);
+    public void displayEmails(ArrayList<String> emails) {
+        for(int i =0 ; i<emails.size();i++){
+            String s = emails.get(i);
             DisplayedBoxes.get(i).setText(s);
         }
     }

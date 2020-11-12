@@ -96,8 +96,8 @@
         android:id="@+id/newGmail"
         android:layout_width="230dp"
         android:layout_height="49dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="104dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="next entry"
@@ -109,18 +109,19 @@
         android:layout_width="98dp"
         android:layout_height="51dp"
         android:layout_marginTop="28dp"
-        android:layout_marginEnd="32dp"
-        android:text="Update List"
+        android:layout_marginEnd="28dp"
+        android:text="Remove Selected"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkBox9" />
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="328dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginBottom="196dp"
-        android:text="Done"
+        android:layout_width="80dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="296dp"
+        android:layout_marginBottom="188dp"
+        android:text="Add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -133,4 +134,14 @@
         android:text="Current Social Circle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="206dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="24dp"
+        android:text="Select Members to Remove, then tap remove"
+        app:layout_constraintEnd_toStartOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox9" />
 </androidx.constraintlayout.widget.ConstraintLayout>
