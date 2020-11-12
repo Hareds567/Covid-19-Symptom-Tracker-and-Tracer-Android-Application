@@ -106,7 +106,6 @@ public class MySocialCircle_MyCovidData extends Fragment {
                     System.out.println(jArray.toString());
                     for(int i = 0; i < jArray.length();i++){
                         gmails.add(jArray.get(i).toString());
-                        //DisplayedBoxes.get(i).setText(gmails.get(i));
                     }
                     displayEmails(gmails);
                 } catch (JSONException e) {
@@ -149,6 +148,7 @@ public class MySocialCircle_MyCovidData extends Fragment {
                     if(b.isChecked()){
                         tempList.add(b.getText().toString());
                         b.setText("");
+                        b.toggle();
                     }//else tempList.add(b.getText().toString());
                 }
                 gmails.removeAll(tempList);
