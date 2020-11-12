@@ -35,6 +35,7 @@ import java.util.HashMap;
 
 public class MySocialCircle_MyCovidData extends Fragment {
     private final String getSocialURL = "https://covidtrackerdev.herokuapp.com/get_social_circle";
+    private final String postSocialURL = "https://covidtrackerdev.herokuapp.com/post_social_circle";
     private CheckBox box1;CheckBox box2;CheckBox box3;CheckBox box4;CheckBox box5;CheckBox box6;CheckBox box7;CheckBox box8;CheckBox box9;
     private Button Submit;Button Enter;
     private TextView newGmail;
@@ -130,9 +131,40 @@ public class MySocialCircle_MyCovidData extends Fragment {
                 displayEmails(tempList);
             }
         });
+        Submit.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+              JSONObject o = new JSONObject();
+                try {
+                    o.put("CircleUser",Gmail);
+                    o.put("SocialCircle",GetEmails());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, getSocialURL,
+                        o, new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(getActivity(),"Unable to get Social Circle",Toast.LENGTH_LONG);
+                    }
+                });
+                queue.add(jsonObjectRequest);
+            }
+        });
         return screen;
     }
-
+    public ArrayList<String> GetEmails(){
+        ArrayList<String>out = new ArrayList<>();
+        for(CheckBox d: DisplayedBoxes){
+            out.add(d.getText().toString());
+        }
+        return out;
+    }
     public void displayEmails(ArrayList<String> emails) {
         for(int i =0 ; i<emails.size();i++){
             String s = emails.get(i);
