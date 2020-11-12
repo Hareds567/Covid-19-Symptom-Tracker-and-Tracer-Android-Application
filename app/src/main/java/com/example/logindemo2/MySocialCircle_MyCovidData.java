@@ -101,13 +101,8 @@ public class MySocialCircle_MyCovidData extends Fragment {
                     for(int i = 0; i < jArray.length();i++){
                         gmails.add(jArray.get(i).toString());
                         DisplayedBoxes.get(i).setText(gmails.get(i));
-                        System.out.println("Size inside OnResponse"+gmails.size());
                     }
-                    /*for(int i =0 ; i<gmails.size();i++){
-                        String s = gmails.get(i);
-                        DisplayedBoxes.get(i).setText(s);
-                    }*/
-
+                    displayEmails();
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -143,7 +138,6 @@ public class MySocialCircle_MyCovidData extends Fragment {
     }
 
     public void displayEmails() {
-        super.onStart();
         for(int i =0 ; i<gmails.size();i++){
             String s = gmails.get(i);
             DisplayedBoxes.get(i).setText(s);
