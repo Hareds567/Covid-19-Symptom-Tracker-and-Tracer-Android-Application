@@ -108,7 +108,7 @@ public class MySocialCircle_MyCovidData extends Fragment {
                         gmails.add(jArray.get(i).toString());
                         //DisplayedBoxes.get(i).setText(gmails.get(i));
                     }
-                    displayEmails();
+                    displayEmails(gmails);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -135,7 +135,7 @@ public class MySocialCircle_MyCovidData extends Fragment {
                         gmails.add(inputEmail);
                     }
                     queue.add(updateSocial());
-                    displayEmails();
+                    displayEmails(gmails);
                 }
             }
         });
@@ -144,12 +144,16 @@ public class MySocialCircle_MyCovidData extends Fragment {
         remove.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                for(int i = 0; i < DisplayedBoxes.size(); i++){
-                    if(DisplayedBoxes.get(i).isChecked()){
-                        gmails.remove(i);
-                    }
+                ArrayList<String>tempList = new ArrayList<>();
+                for(CheckBox b : DisplayedBoxes){
+                    if(b.isChecked()){
+                        tempList.add(b.getText().toString());
+                        b.setText("");
+                    }//else tempList.add(b.getText().toString());
                 }
+                gmails.removeAll(tempList);
                 queue.add(updateSocial());
+                displayEmails(gmails);
             }
         });
 
@@ -188,9 +192,9 @@ public class MySocialCircle_MyCovidData extends Fragment {
     }
 
 
-    public void displayEmails() {
-        for(int i =0 ; i< gmails.size();i++){
-            String s = gmails.get(i);
+    public void displayEmails(ArrayList<String> emails) {
+        for(int i =0 ; i< emails.size();i++){
+            String s = emails.get(i);
             DisplayedBoxes.get(i).setText(s);
         }
     }
