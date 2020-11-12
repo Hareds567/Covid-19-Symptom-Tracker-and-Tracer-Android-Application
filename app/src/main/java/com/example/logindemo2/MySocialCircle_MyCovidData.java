@@ -36,7 +36,11 @@ import java.util.regex.Pattern;
 public class MySocialCircle_MyCovidData extends Fragment {
     private static Pattern VALID_EMAIL_ADDRESS_REGEX = Pattern.compile("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(oswego)\\.edu$") ;
     private final String getSocialURL = "https://covidtrackerdev.herokuapp.com/get_social_circle";
+<<<<<<< HEAD
     private final String postSocialUrl = "https://covidtrackerdev.herokuapp.com/post_social_circle";
+=======
+    private final String postSocialURL = "https://covidtrackerdev.herokuapp.com/post_social_circle";
+>>>>>>> db0c8867632d27903461df3399e87e58db717ca6
     private CheckBox box1;CheckBox box2;CheckBox box3;CheckBox box4;CheckBox box5;CheckBox box6;CheckBox box7;CheckBox box8;CheckBox box9;
     private Button remove;Button add;
     private TextView newGmail;
@@ -152,6 +156,7 @@ public class MySocialCircle_MyCovidData extends Fragment {
                 queue.add(updateSocial());
             }
         });
+<<<<<<< HEAD
 
         return screen;
     }
@@ -191,6 +196,45 @@ public class MySocialCircle_MyCovidData extends Fragment {
     public void displayEmails() {
         for(int i =0 ; i< gmails.size();i++){
             String s = gmails.get(i);
+=======
+        Submit.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+              JSONObject o = new JSONObject();
+                try {
+                    o.put("CircleUser",Gmail);
+                    o.put("SocialCircle",GetEmails());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, getSocialURL,
+                        o, new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(getActivity(),"Unable to get Social Circle",Toast.LENGTH_LONG);
+                    }
+                });
+                queue.add(jsonObjectRequest);
+            }
+        });
+        return screen;
+    }
+    public ArrayList<String> GetEmails(){
+        ArrayList<String>out = new ArrayList<>();
+        for(CheckBox d: DisplayedBoxes){
+            out.add(d.getText().toString());
+        }
+        return out;
+    }
+    public void displayEmails(ArrayList<String> emails) {
+        for(int i =0 ; i<emails.size();i++){
+            String s = emails.get(i);
+>>>>>>> db0c8867632d27903461df3399e87e58db717ca6
             DisplayedBoxes.get(i).setText(s);
         }
     }
