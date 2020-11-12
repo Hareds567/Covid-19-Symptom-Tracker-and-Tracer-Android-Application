@@ -83,7 +83,7 @@
         android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
         android:paddingLeft="24dp"
         android:paddingRight="16dp"
-        android:text="My Residence\n Hall Covid Data"
+        android:text="Report Posititve Test"
         android:textAllCaps="false"
         android:textColor="#FF9800"
         android:textSize="16sp"
