@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/covidData">
+
+    <fragment
+        android:id="@+id/covidData"
+        android:name="com.example.sunyoswegocovid_19app.CovidData"
+        android:label="fragment_covid_data"
+        tools:layout="@layout/fragment_covid_data" />
+    <fragment
+        android:id="@+id/myCovidData"
+        android:name="com.example.sunyoswegocovid_19app.MyCovidData"
+        android:label="fragment_my_covid_data"
+        tools:layout="@layout/fragment_my_covid_data" />
+    <fragment
+        android:id="@+id/updateInfo"
+        android:name="com.example.sunyoswegocovid_19app.UpdateInfo"
+        android:label="fragment_update_info"
+        tools:layout="@layout/fragment_update_info" />
+    <fragment
+        android:id="@+id/appSettings"
+        android:name="com.example.sunyoswegocovid_19app.AppSettings"
+        android:label="fragment_app_settings"
+        tools:layout="@layout/fragment_app_settings" />
+</navigation>
