@@ -33,7 +33,10 @@ import org.json.JSONObject;
 public class ResidenceHallData_MyCovidData extends Fragment {
 
     private final String getSocialURL = "https://covidtrackerdev.herokuapp.com/testcsv";
-    private final String sendalertURL = "https://covidtrackerdev.herokuapp.com/post_send_alert";
+    private final String sendAlertSocial = "https://covidtrackerdev.herokuapp.com/post_send_alert";
+    private final String sendAlertClass = "https://covidtrackerdev.herokuapp.com/post_class_alert";
+    private final String sendAlertWorkplace = "https://covidtrackerdev.herokuapp.com/post_alert_workplace";
+
 
     private TextView displayResidence_TextView;
 
@@ -103,14 +106,15 @@ public class ResidenceHallData_MyCovidData extends Fragment {
                     @Override
                     public void onClick(View v) {
                         if(checkedId == R.id.radioButton3){
-                            JSONObject o = new JSONObject();
+                            JSONObject jsonUserGmail = new JSONObject();
                             try {
-                                o.put("Email",userGmail);
+                                jsonUserGmail.put("Email",userGmail);
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
-                            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, sendalertURL,
-                                    o, new Response.Listener<JSONObject>() {
+                            //Post request to notify user's to user's social circle
+                            JsonObjectRequest requestAlertSocial = new JsonObjectRequest(Request.Method.POST, sendAlertSocial,
+                                    jsonUserGmail, new Response.Listener<JSONObject>() {
                                 @Override
                                 public void onResponse(JSONObject response) {
                                 }
@@ -120,7 +124,34 @@ public class ResidenceHallData_MyCovidData extends Fragment {
                                     Toast.makeText(getActivity(),"Unable to get Send Alert",Toast.LENGTH_LONG);
                                 }
                             });
-                            queue.add(jsonObjectRequest);
+                            //Post request to notify user's classmates
+                            JsonObjectRequest requestAlertCourse = new JsonObjectRequest(Request.Method.POST, sendAlertClass,
+                                    jsonUserGmail, new Response.Listener<JSONObject>() {
+                                @Override
+                                public void onResponse(JSONObject response) {
+                                }
+                            }, new Response.ErrorListener() {
+                                @Override
+                                public void onErrorResponse(VolleyError error) {
+                                    Toast.makeText(getActivity(),"Unable to get Send Alert",Toast.LENGTH_LONG);
+                                }
+                            });
+                            //Post request to notify user's coo-workers.
+                            JsonObjectRequest requestAlertWorkplace = new JsonObjectRequest(Request.Method.POST, sendAlertWorkplace,
+                                    jsonUserGmail, new Response.Listener<JSONObject>() {
+                                @Override
+                                public void onResponse(JSONObject response) {
+                                }
+                            }, new Response.ErrorListener() {
+                                @Override
+                                public void onErrorResponse(VolleyError error) {
+                                    Toast.makeText(getActivity(),"Unable to get Send Alert",Toast.LENGTH_LONG);
+                                }
+                            });
+
+                            queue.add(requestAlertSocial);
+                            queue.add(requestAlertCourse);
+                            queue.add(requestAlertWorkplace);
 
                         }else {
                             //send neg
