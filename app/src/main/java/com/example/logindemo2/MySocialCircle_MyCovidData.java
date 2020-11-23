@@ -37,6 +37,7 @@ public class  MySocialCircle_MyCovidData extends Fragment {
     private static Pattern VALID_EMAIL_ADDRESS_REGEX = Pattern.compile("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(oswego)\\.edu$") ;
     private final String getSocialURL = "https://covidtrackerdev.herokuapp.com/get_social_circle";
     private final String postSocialUrl = "https://covidtrackerdev.herokuapp.com/post_social_circle";
+    private final String postWorkplace = "https://covidtrackerdev.herokuapp.com/post_workplace";
     private CheckBox box1;CheckBox box2;CheckBox box3;CheckBox box4;CheckBox box5;CheckBox box6;CheckBox box7;CheckBox box8;CheckBox box9;
     private Button remove;Button add;
     private TextView newGmail;
@@ -129,6 +130,10 @@ public class  MySocialCircle_MyCovidData extends Fragment {
                     Toast.makeText(getActivity(),"Please Enter an School email", Toast.LENGTH_LONG).show();
                 }else if(gmails.size() + 1 > 9 ){
                     Toast.makeText(getActivity(),"Social Circle is Full", Toast.LENGTH_LONG).show();
+                }else if(Gmail.compareTo(inputEmail) == 0){
+                    Toast.makeText(getActivity(),"You can't add yourself", Toast.LENGTH_LONG).show();
+                }else if(gmails.contains(inputEmail)){
+                    Toast.makeText(getActivity(),"Member already exist", Toast.LENGTH_LONG).show();
                 }else {
                     if (gmails.size() < 9) {
                         gmails.add(inputEmail);
@@ -136,6 +141,7 @@ public class  MySocialCircle_MyCovidData extends Fragment {
                     queue.add(updateSocial());
                     displayEmails(gmails);
                 }
+                //queue.add(updateworkplace());
             }
         });
         //==========================================================================================
@@ -159,9 +165,39 @@ public class  MySocialCircle_MyCovidData extends Fragment {
 
         return screen;
     }
+    //==============================================================================================
+    //
+
+
 
     //==============================================================================================
+    public JsonObjectRequest  updateworkplace (){
+        JSONObject o = new JSONObject();
+        try {
+            o.put("WorkUser", Gmail);
+            o.put("Workplace", "php");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        System.out.println("test");
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, postWorkplace,
+                o, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                System.out.println(response.toString());
+                System.out.println("Sus");
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getActivity(),"Unable to get Social Circle",Toast.LENGTH_LONG);
+            }
+        });
+        return jsonObjectRequest;
+    }
 
+
+    // Update Social Circle
     public JsonObjectRequest updateSocial (){
         JSONObject o = new JSONObject();
         JSONArray array = new JSONArray(); // create a JSON array
