@@ -27,6 +27,7 @@ public class UserCovidData extends Fragment {
     private String mParam2;
     private Button residenceHallData_Btn;
     private Button mySocialCircle_Btn;
+    private Button classes_Btn;
 
     public UserCovidData() {
         // Required empty public constructor
@@ -68,6 +69,7 @@ public class UserCovidData extends Fragment {
         //Goes to ResidenceHallData_MyCovidData
         residenceHallData_Btn = rootView.findViewById(R.id.residenceHalldata_Btn);
         mySocialCircle_Btn = rootView.findViewById(R.id.mySocialCircle_Btn);
+        classes_Btn = rootView.findViewById(R.id.classes_btn);
 
         residenceHallData_Btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,6 +77,16 @@ public class UserCovidData extends Fragment {
                 ResidenceHallData_MyCovidData residenceHallDataMyCovidData = new ResidenceHallData_MyCovidData();
                 FragmentManager fragmentManager = getFragmentManager();
                 fragmentManager.beginTransaction().replace(R.id.nav_host_fragment, residenceHallDataMyCovidData, residenceHallDataMyCovidData.getTag()).commit();
+            }
+        });
+
+        classes_Btn.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+                UpdateClasses updateClasses = new UpdateClasses();
+                FragmentManager fragmentManager = getFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.nav_host_fragment, updateClasses, updateClasses.getTag()).commit();
             }
         });
 

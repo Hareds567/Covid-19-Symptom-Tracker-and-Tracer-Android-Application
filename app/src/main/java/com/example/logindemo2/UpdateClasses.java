@@ -35,12 +35,13 @@ import java.util.regex.Pattern;
 
 public class UpdateClasses extends Fragment {
 
-    private UpdateClassesViewModel mViewModel;
 
     public static UpdateClasses newInstance() {
         return new UpdateClasses();
     }
-    final String url ="heroku.com/post_courselist";
+    final String post_courselist ="https://covidtrackerdev.herokuapp.com/post_courselist";
+    final String get_courselist ="https://covidtrackerdev.herokuapp.com/get_courselist";
+
     ArrayList<CheckBox> boxes;
     String Gmail;
     ArrayList<String>CIDS;
@@ -83,7 +84,7 @@ public class UpdateClasses extends Fragment {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        JsonObjectRequest jsonReq = new JsonObjectRequest(Request.Method.POST, url, o, new Response.Listener<JSONObject>() {
+        JsonObjectRequest jsonReq = new JsonObjectRequest(Request.Method.POST, get_courselist, o, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 try {
@@ -157,7 +158,7 @@ public class UpdateClasses extends Fragment {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url,
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, post_courselist,
                 o, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
