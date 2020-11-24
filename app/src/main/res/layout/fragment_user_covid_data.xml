@@ -36,7 +36,7 @@
         android:id="@+id/classes_btn"
         android:layout_width="347dp"
         android:layout_height="60dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="40dp"
         android:background="#FAF1E4"
         android:drawableLeft="@drawable/ic_my_covid_status"
         android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
@@ -74,7 +74,7 @@
         android:id="@+id/residenceHalldata_Btn"
         android:layout_width="347dp"
         android:layout_height="60dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="40dp"
         android:background="#FAF1E4"
         android:drawableLeft="@drawable/ic_residence_hall"
         android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
@@ -88,4 +88,23 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/classes_btn" />
+
+    <Button
+        android:id="@+id/myWorkplace_btn"
+        android:layout_width="347dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="40dp"
+        android:background="#FAF1E4"
+        android:drawableLeft="@drawable/ic_residence_hall"
+        android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
+        android:paddingLeft="24dp"
+        android:paddingRight="16dp"
+        android:text="My Workplace"
+        android:textAllCaps="false"
+        android:textColor="#FF9800"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/residenceHalldata_Btn" />
 </androidx.constraintlayout.widget.ConstraintLayout>

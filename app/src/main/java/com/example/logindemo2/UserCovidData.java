@@ -28,6 +28,7 @@ public class UserCovidData extends Fragment {
     private Button residenceHallData_Btn;
     private Button mySocialCircle_Btn;
     private Button classes_Btn;
+    private Button workplace_Btn;
 
     public UserCovidData() {
         // Required empty public constructor
@@ -70,6 +71,7 @@ public class UserCovidData extends Fragment {
         residenceHallData_Btn = rootView.findViewById(R.id.residenceHalldata_Btn);
         mySocialCircle_Btn = rootView.findViewById(R.id.mySocialCircle_Btn);
         classes_Btn = rootView.findViewById(R.id.classes_btn);
+        workplace_Btn = rootView.findViewById(R.id.myWorkplace_btn);
 
         residenceHallData_Btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,6 +101,12 @@ public class UserCovidData extends Fragment {
             }
         });
 
+        workplace_Btn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
         return rootView;
     }
 }
