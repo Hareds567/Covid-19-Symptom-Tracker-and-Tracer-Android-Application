@@ -15,12 +15,10 @@ public class ProgramAdapter extends ArrayAdapter<String> {
     int[] images;
     String[] programName;
 
-    public ProgramAdapter(Context context, String[] programName, int[] images) {
+    public ProgramAdapter(Context context, String[] programName) {
         super(context, R.layout.single_item, R.id.textView1, programName);
         this.context = context;
-        this.images = images;
         this.programName = programName;
-        this.images = images;
     }
 
     @Override
@@ -40,7 +38,6 @@ public class ProgramAdapter extends ArrayAdapter<String> {
             holder = (ProgramViewHolder) singleItem.getTag();
         }
 
-        holder.itemImage.setImageResource(images[position]);
         holder.programTitle.setText(programName[position]);
 
         singleItem.setOnClickListener(new View.OnClickListener() {

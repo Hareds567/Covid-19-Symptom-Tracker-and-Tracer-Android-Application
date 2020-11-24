@@ -65,7 +65,7 @@ public class WorkPlace_MyCovidData extends Fragment {
         // Inflate the layout for this fragment
         final View root = inflater.inflate(R.layout.fragment_work_place__my_covid_data, container, false);
         lvProgram = root.findViewById(R.id.lvProgram);
-        ProgramAdapter programAdapater = new ProgramAdapter(getActivity(), workplaces, images);
+        ProgramAdapter programAdapater = new ProgramAdapter(getActivity(), workplaces);
         lvProgram.setAdapter(programAdapater);
         return root;
     }
