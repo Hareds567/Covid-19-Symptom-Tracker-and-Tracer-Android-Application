@@ -104,7 +104,9 @@ public class UserCovidData extends Fragment {
         workplace_Btn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-
+                WorkPlace_MyCovidData workPlace_myCovidData = new WorkPlace_MyCovidData();
+                FragmentManager fragmentManager = getFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.nav_host_fragment, workPlace_myCovidData, workPlace_myCovidData.getTag()).commit();
             }
         });
         return rootView;
