@@ -12,10 +12,10 @@ import android.widget.Button;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link UserCovidData#newInstance} factory method to
+ * Use the {@link MyCovidData#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class UserCovidData extends Fragment {
+public class MyCovidData extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -30,7 +30,7 @@ public class UserCovidData extends Fragment {
     private Button classes_Btn;
     private Button workplace_Btn;
 
-    public UserCovidData() {
+    public MyCovidData() {
         // Required empty public constructor
     }
 
@@ -43,8 +43,8 @@ public class UserCovidData extends Fragment {
      * @return A new instance of fragment UserCovidData.
      */
     // TODO: Rename and change types and number of parameters
-    public static UserCovidData newInstance(String param1, String param2) {
-        UserCovidData fragment = new UserCovidData();
+    public static MyCovidData newInstance(String param1, String param2) {
+        MyCovidData fragment = new MyCovidData();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -76,7 +76,7 @@ public class UserCovidData extends Fragment {
         residenceHallData_Btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ResidenceHallData_MyCovidData residenceHallDataMyCovidData = new ResidenceHallData_MyCovidData();
+                MyCovidData_ReportPositiveTest residenceHallDataMyCovidData = new MyCovidData_ReportPositiveTest();
                 FragmentManager fragmentManager = getFragmentManager();
                 fragmentManager.beginTransaction().replace(R.id.nav_host_fragment, residenceHallDataMyCovidData, residenceHallDataMyCovidData.getTag()).commit();
             }
@@ -86,7 +86,7 @@ public class UserCovidData extends Fragment {
 
             @Override
             public void onClick(View view) {
-                UpdateClasses updateClasses = new UpdateClasses();
+                MyCovidData_UpdateClasses updateClasses = new MyCovidData_UpdateClasses();
                 FragmentManager fragmentManager = getFragmentManager();
                 fragmentManager.beginTransaction().replace(R.id.nav_host_fragment, updateClasses, updateClasses.getTag()).commit();
             }
@@ -95,18 +95,18 @@ public class UserCovidData extends Fragment {
         mySocialCircle_Btn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                MySocialCircle_MyCovidData mySocialCircle_myCovidData = new MySocialCircle_MyCovidData();
+                MyCovidData_MySocialCircle _myCovidDataMySocialCircle = new MyCovidData_MySocialCircle();
                 FragmentManager fragmentManager = getFragmentManager();
-                fragmentManager.beginTransaction().replace(R.id.nav_host_fragment, mySocialCircle_myCovidData, mySocialCircle_myCovidData.getTag()).commit();
+                fragmentManager.beginTransaction().replace(R.id.nav_host_fragment, _myCovidDataMySocialCircle, _myCovidDataMySocialCircle.getTag()).commit();
             }
         });
 
         workplace_Btn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                WorkPlace_MyCovidData workPlace_myCovidData = new WorkPlace_MyCovidData();
+                MyCovidData_UpdateWorkplace MyCovidData_UpdateClasses = new MyCovidData_UpdateWorkplace();
                 FragmentManager fragmentManager = getFragmentManager();
-                fragmentManager.beginTransaction().replace(R.id.nav_host_fragment, workPlace_myCovidData, workPlace_myCovidData.getTag()).commit();
+                fragmentManager.beginTransaction().replace(R.id.nav_host_fragment, MyCovidData_UpdateClasses, MyCovidData_UpdateClasses.getTag()).commit();
             }
         });
         return rootView;

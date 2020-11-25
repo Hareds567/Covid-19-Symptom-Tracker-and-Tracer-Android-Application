@@ -69,7 +69,7 @@ public class CovidData extends Fragment {
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
         GoogleSignInClient mGoogleSignInClient = GoogleSignIn.getClient(getActivity(), gso);
         //Connect Buttons and TextView and their xml content using ID
-            test_textView = rootView.findViewById(R.id.test_textView);
+
         Button dailySurveyBtn = rootView.findViewById(R.id.DailySurveyBtn_CovidData);
         Button covidInfoBtn = rootView.findViewById(R.id.CovidInfoBtn_CovidData);
         //Add click listeners to buttons
@@ -102,7 +102,7 @@ public class CovidData extends Fragment {
         // This is not going to be in the last version of the app
         GoogleSignInAccount acc = GoogleSignIn.getLastSignedInAccount(getActivity());
         String text = acc.getDisplayName() + " " + acc.getEmail();
-        test_textView.setText(text);
+
 
     }
 }

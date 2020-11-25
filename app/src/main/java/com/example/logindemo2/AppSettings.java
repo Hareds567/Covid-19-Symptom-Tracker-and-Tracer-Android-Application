@@ -56,27 +56,19 @@ public class AppSettings extends Fragment {
         final View rootView = inflater.inflate(R.layout.fragment_app_settings, container, false);
         //Connect Buttons and their xml content using ID
         myCovidData_Btn = rootView.findViewById(R.id.myCovidData_Btn);
-        updateInfo_Btn = rootView.findViewById(R.id.updateInfoBtn_Setting);
         helpImprove_btn = rootView.findViewById(R.id.helpImprove_btn);
 
         //Set click listeners for buttons: When a button gets clicked do something that is inside the onclick method
         myCovidData_Btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MyCovidData_AppSetting myCovidDataFragment = new MyCovidData_AppSetting();
+                AppSetting_MyCovidData myCovidDataFragment = new AppSetting_MyCovidData();
                 FragmentManager manager = getFragmentManager();
                 manager.beginTransaction().replace(R.id.nav_host_fragment, myCovidDataFragment, myCovidDataFragment.getTag()).commit();
             }
         });
 
-        updateInfo_Btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                UpdateInfo_AppSetting updateInfo = new UpdateInfo_AppSetting();
-                FragmentManager manager = getFragmentManager();
-                manager.beginTransaction().replace(R.id.nav_host_fragment, updateInfo, updateInfo.getTag()).commit();
-            }
-        });
+
 
         helpImprove_btn.setOnClickListener(new View.OnClickListener() {
             @Override

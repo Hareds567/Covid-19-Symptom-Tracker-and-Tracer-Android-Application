@@ -11,10 +11,10 @@ import android.widget.ListView;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link WorkPlace_MyCovidData#newInstance} factory method to
+ * Use the {@link MyCovidData_WorkPlace#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class WorkPlace_MyCovidData extends Fragment {
+public class MyCovidData_WorkPlace extends Fragment {
 
 
     private static final String ARG_PARAM1 = "param1";
@@ -30,19 +30,13 @@ public class WorkPlace_MyCovidData extends Fragment {
             "Hewitt Union", "Mahar Hall", "Lanigan Hall", "Cooper Dining Center", "Lakeside Dining Center", "Littlepage Dining Center",
             "Pathfinder Dining Center"};
 
-    int[] images = {R.drawable.reshall, R.drawable.reshall2, R.drawable.reshall3, R.drawable.reshall4, R.drawable.reshall5,
-            R.drawable.reshall7, R.drawable.reshall8, R.drawable.reshall9, R.drawable.reshall10,
-            R.drawable.reshall11,  R.drawable.workplace, R.drawable.workplace1, R.drawable.workplace2, R.drawable.workplace3,
-            R.drawable.workplace4, R.drawable.workplace5,  R.drawable.workplace6,  R.drawable.workplace7,  R.drawable.workplace8,
-            R.drawable.workplace9};
-
-    public WorkPlace_MyCovidData() {
+    public MyCovidData_WorkPlace() {
         // Required empty public constructor
     }
 
 
-    public static WorkPlace_MyCovidData newInstance(String param1, String param2) {
-        WorkPlace_MyCovidData fragment = new WorkPlace_MyCovidData();
+    public static MyCovidData_WorkPlace newInstance(String param1, String param2) {
+        MyCovidData_WorkPlace fragment = new MyCovidData_WorkPlace();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);

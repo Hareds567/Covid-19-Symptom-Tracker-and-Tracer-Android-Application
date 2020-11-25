@@ -4,7 +4,6 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,13 +23,12 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.common.api.ApiException;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 
-public class ResidenceHallData_MyCovidData extends Fragment {
+public class MyCovidData_ReportPositiveTest extends Fragment {
 
     private final String getSocialURL = "https://covidtrackerdev.herokuapp.com/testcsv";
     private final String sendAlertSocial = "https://covidtrackerdev.herokuapp.com/post_send_alert";
@@ -55,7 +53,7 @@ public class ResidenceHallData_MyCovidData extends Fragment {
     private String Res;
     private RadioGroup options;
 
-    public ResidenceHallData_MyCovidData() {
+    public MyCovidData_ReportPositiveTest() {
     }
 
 
@@ -70,7 +68,7 @@ public class ResidenceHallData_MyCovidData extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        final View rootView = inflater.inflate(R.layout.fragment_residence_hall_data__my_covid_data, container, false);
+        final View rootView = inflater.inflate(R.layout.fragment_report_positive_test_my_covid_data, container, false);
         //=========================================================================================
         //Processes the google login
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();

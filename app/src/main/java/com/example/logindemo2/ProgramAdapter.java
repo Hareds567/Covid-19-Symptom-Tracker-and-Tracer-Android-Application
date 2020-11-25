@@ -12,7 +12,6 @@ import androidx.annotation.Nullable;
 
 public class ProgramAdapter extends ArrayAdapter<String> {
     Context context;
-    int[] images;
     String[] programName;
 
     public ProgramAdapter(Context context, String[] programName) {

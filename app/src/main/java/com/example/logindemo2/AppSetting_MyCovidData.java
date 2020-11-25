@@ -2,7 +2,6 @@ package com.example.logindemo2;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -21,17 +20,9 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
-import java.util.concurrent.Executor;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link MyCovidData_AppSetting#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class MyCovidData_AppSetting extends Fragment {
+public class AppSetting_MyCovidData extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
@@ -44,23 +35,16 @@ public class MyCovidData_AppSetting extends Fragment {
     private GoogleSignInAccount mGoogleSignInAccount;
     private GoogleSignInOptions gso;
     private GoogleSignInClient mGoogleSignInClient;
-    private TextView test_textView;
 
-    public MyCovidData_AppSetting() {
+    private TextView email_TextView;
+    private TextView userName_TextView;
+
+    public AppSetting_MyCovidData() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment MyCovidData_AppSetting.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static MyCovidData_AppSetting newInstance(String param1, String param2) {
-        MyCovidData_AppSetting fragment = new MyCovidData_AppSetting();
+    public static AppSetting_MyCovidData newInstance(String param1, String param2) {
+        AppSetting_MyCovidData fragment = new AppSetting_MyCovidData();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -80,11 +64,18 @@ public class MyCovidData_AppSetting extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        final View rootView = inflater.inflate(R.layout.fragment_my_covid_data__app_setting, container, false);
         // Inflate the layout for this fragment
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
         mGoogleSignInClient = GoogleSignIn.getClient(getActivity(), gso);
-        final View rootView = inflater.inflate(R.layout.fragment_my_covid_data__app_setting, container, false);
+        GoogleSignInAccount acc = GoogleSignIn.getLastSignedInAccount(getActivity());
+        //Setting up UI elements
         signOut_Btn = rootView.findViewById(R.id.Sign_out_Button_Setting);
+        email_TextView = rootView.findViewById(R.id.textView_Email);
+        userName_TextView = rootView.findViewById(R.id.textView_userName);
+        //
+        email_TextView.setText(acc.getEmail());
+        userName_TextView.setText(acc.getDisplayName());
 
         signOut_Btn.setOnClickListener(new View.OnClickListener(){
             @Override

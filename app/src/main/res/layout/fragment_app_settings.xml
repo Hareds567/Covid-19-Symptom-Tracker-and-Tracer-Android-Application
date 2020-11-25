@@ -41,7 +41,7 @@
         android:paddingStart="24dp"
         android:paddingTop="12dp"
         android:paddingEnd="16dp"
-        android:text="My Covid Data"
+        android:text="Profile"
         android:textAlignment="textStart"
         android:textAllCaps="false"
         android:textColor="#FF9800"
@@ -52,32 +52,11 @@
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <Button
-        android:id="@+id/updateInfoBtn_Setting"
-        android:layout_width="347dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="#FAF1E4"
-        android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24"
-        android:gravity="start"
-        android:paddingStart="24dp"
-        android:paddingTop="12dp"
-        android:paddingEnd="16dp"
-        android:text="Update Info"
-        android:textAlignment="textStart"
-        android:textAllCaps="false"
-        android:textColor="#FF9800"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button16" />
-
-    <Button
         android:id="@+id/helpImprove_btn"
         android:layout_width="347dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="#FAF1E4"
+        android:layout_marginTop="40dp"
+        android:background="#FFFFFF"
         android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24"
         android:gravity="start"
         android:paddingStart="24dp"
@@ -94,31 +73,10 @@
         app:layout_constraintTop_toBottomOf="@+id/button17" />
 
     <Button
-        android:id="@+id/button15"
-        android:layout_width="347dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:background="#FAF1E4"
-        android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24"
-        android:gravity="start"
-        android:paddingStart="24dp"
-        android:paddingTop="12dp"
-        android:paddingEnd="16dp"
-        android:text="Delete My Data"
-        android:textAlignment="textStart"
-        android:textAllCaps="false"
-        android:textColor="#FF9800"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/updateInfoBtn_Setting" />
-
-    <Button
         android:id="@+id/button16"
         android:layout_width="347dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="16dp"
         android:background="#FAF1E4"
         android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24"
         android:gravity="start"
@@ -154,26 +112,6 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button15" />
+        app:layout_constraintTop_toBottomOf="@+id/button16" />
 
-    <Button
-        android:id="@+id/button18"
-        android:layout_width="347dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:background="#FAF1E4"
-        android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24"
-        android:gravity="start"
-        android:paddingStart="24dp"
-        android:paddingTop="12dp"
-        android:paddingEnd="16dp"
-        android:text="Submit Feedback"
-        android:textAlignment="textStart"
-        android:textAllCaps="false"
-        android:textColor="#FF9800"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/helpImprove_btn" />
 </androidx.constraintlayout.widget.ConstraintLayout>
