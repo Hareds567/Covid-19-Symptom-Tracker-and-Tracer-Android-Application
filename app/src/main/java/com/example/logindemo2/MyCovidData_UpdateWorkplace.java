@@ -73,6 +73,7 @@ public class MyCovidData_UpdateWorkplace extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_my_covid_data__update_workplace, container, false);
+
         final RequestQueue queue = Volley.newRequestQueue(getActivity());
         //Variables
         JSONObject email = new JSONObject();
@@ -141,7 +142,8 @@ public class MyCovidData_UpdateWorkplace extends Fragment {
             @Override
             public void onClick(View view) {
                 MyCovidData_WorkPlace workplace = new MyCovidData_WorkPlace();
-                fragmentManager.beginTransaction().replace(R.id.nav_host_fragment, workplace, workplace.getTag()).commit();
+                fragmentManager.beginTransaction().replace(R.id.nav_host_fragment, workplace, workplace.getTag()).addToBackStack(null).commit();
+               root.setVisibility(View.GONE);
             }
         });
         //delete the WorkPlace
@@ -159,13 +161,11 @@ public class MyCovidData_UpdateWorkplace extends Fragment {
             public void onClick(View view) {
                 //Handles Http Requests
                 queue.add(updateWorkplace());
-
                 //Handles UI
                 displayWorkplace(workplace_tobe_added);
                 addWorkplace_TextV.setText("");
                 addWorkplace_btn.setVisibility(View.GONE);
                 cancelWorkplace_btn.setVisibility(View.GONE);
-
             }
         });
 

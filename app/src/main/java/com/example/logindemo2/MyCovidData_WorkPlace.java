@@ -16,7 +16,6 @@ public class MyCovidData_WorkPlace extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
@@ -61,20 +60,7 @@ public class MyCovidData_WorkPlace extends Fragment {
         //Receives Bundle From the Adapter so it can send it to Upload_Workplace fragment
         System.out.println("Hello from Workplace Fragment");
         System.out.println("New Arguments: " + getArguments());
-        if (getArguments() != null) {
-            System.out.println("New Arguments: " + getArguments());
-            Bundle response = (Bundle) getArguments().get("ARG_FOR_WORKPLACE");
-            Bundle response_to_update = (Bundle) getArguments().get("ARG_FOR_UPDATEWORKPLACE");
-            System.out.println("New Response: " + response.get("CLICKED"));
-            System.out.println("New Response to update: " + response_to_update.get("WORKPLACE"));
-            //Handles something
-            if((boolean) response.get("CLICKED")){
-                MyCovidData_UpdateWorkplace updateclasses = new MyCovidData_UpdateWorkplace(); // Fragmnet that is replacing the current fragment
-                updateclasses.setArguments(response_to_update);// Set the arguments containing the name of the workplace
-                FragmentManager fragment = getFragmentManager(); //creates a fragment manager to start communication
-                fragment.beginTransaction().replace(R.id.nav_host_fragment, updateclasses,updateclasses.getTag()).commit(); //Sends the information and replace the current fragment
-            }
-        }
+
         return root;
     }
 }

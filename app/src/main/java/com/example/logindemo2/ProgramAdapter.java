@@ -49,29 +49,15 @@ public class ProgramAdapter extends ArrayAdapter<String> {
                 Toast.makeText(getContext(), "You clicked" + programName[position], Toast.LENGTH_SHORT).show();
                 String test = programName[position];
 
+                MyCovidData_UpdateWorkplace myCovidData_UpdateWorkplace = new MyCovidData_UpdateWorkplace();  //my covid data fragment
+                Bundle arguments = new Bundle(); // creates a bundle to send data to update_worplace fragment
+                arguments.putString("WORKPLACE", test); //argument that contains the name of the selected workplace
+                myCovidData_UpdateWorkplace.setArguments(arguments);
+
+
                 AppCompatActivity activity = (AppCompatActivity) view.getContext();
-                MyCovidData_UpdateWorkplace MyCovidData_UpdateWorkplace = new MyCovidData_UpdateWorkplace();  //my covid data fragment
-                MyCovidData_WorkPlace workplace = new MyCovidData_WorkPlace(); //workplace fragment
-
-                Bundle superBundle = new Bundle();
-
-                Bundle arg_for_UpdateWorkplace = new Bundle(); // creates a bundle to send data to update_worplace fragment
-                arg_for_UpdateWorkplace.putString("WORKPLACE", test); //argument that contains the name of the selected workplace
-
-                Bundle arg_for_Workplace = new Bundle();
-                arg_for_Workplace.putBoolean("CLICKED", true);
-
-                superBundle.putBundle("ARG_FOR_UPDATEWORKPLACE", arg_for_UpdateWorkplace);
-                superBundle.putBundle("ARG_FOR_WORKPLACE", arg_for_Workplace);
-
-                System.out.println("Program Adapter Workplace: " + test);
-                System.out.println("Arguments from the Program Adapter: " + arg_for_UpdateWorkplace);
-               // singleItem.setVisible.setVisibility(View)
-
-                MyCovidData_UpdateWorkplace.setArguments(superBundle); //Sets the arguments containing both bundles;
-                workplace.setArguments(superBundle);
                 FragmentManager fragmentManager = activity.getSupportFragmentManager();
-                fragmentManager.beginTransaction().replace(R.id.nav_host_fragment,workplace, workplace.getTag()).commit();
+                fragmentManager.beginTransaction().replace(R.id.nav_host_fragment,myCovidData_UpdateWorkplace, myCovidData_UpdateWorkplace.getTag()).addToBackStack(null).commit();
                 parent.setVisibility(View.GONE);
             }
         });
