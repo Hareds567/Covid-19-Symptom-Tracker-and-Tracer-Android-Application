@@ -72,7 +72,7 @@ public class MyCovidData_UpdateWorkplace extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        final View root = inflater.inflate(R.layout.fragment_my_covid_data__update_workplace, container, false);
+        View root = inflater.inflate(R.layout.fragment_my_covid_data__update_workplace, container, false);
         final RequestQueue queue = Volley.newRequestQueue(getActivity());
         //Variables
         JSONObject email = new JSONObject();
@@ -134,7 +134,6 @@ public class MyCovidData_UpdateWorkplace extends Fragment {
             System.out.println("When argument is not null, Workplace: " + workplace_tobe_added);
         }
         System.out.println("Workplace: " + workplace);
-
         //==========================================================================================
         //BUTTON ON_CLICK LISTENERS
         // Select the workplace to be updated or added
@@ -142,10 +141,7 @@ public class MyCovidData_UpdateWorkplace extends Fragment {
             @Override
             public void onClick(View view) {
                 MyCovidData_WorkPlace workplace = new MyCovidData_WorkPlace();
-                root.setVisibility(View.GONE);
                 fragmentManager.beginTransaction().replace(R.id.nav_host_fragment, workplace, workplace.getTag()).commit();
-
-
             }
         });
         //delete the WorkPlace
@@ -173,15 +169,14 @@ public class MyCovidData_UpdateWorkplace extends Fragment {
             }
         });
 
-        cancelWorkplace_btn.setOnClickListener(new View.OnClickListener(){
+        cancelWorkplace_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 addWorkplace_TextV.setText("Select a Work Place");
                 addWorkplace_btn.setVisibility(View.GONE);
                 cancelWorkplace_btn.setVisibility(View.GONE);
-           }
+            }
         });
-
         return root;
     }
 

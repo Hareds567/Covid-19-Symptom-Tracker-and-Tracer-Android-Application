@@ -55,8 +55,8 @@ public class MyCovidData_WorkPlace extends Fragment {
         // Inflate the layout for this fragment
         final View root = inflater.inflate(R.layout.fragment_my_covid_data_work_place, container, false);
         listView = root.findViewById(R.id.lvProgram);
-        ProgramAdapter programAdapater = new ProgramAdapter(getActivity(), workplaces);
-        listView.setAdapter(programAdapater);
+        ProgramAdapter programAdapter = new ProgramAdapter(getActivity(), workplaces);
+        listView.setAdapter(programAdapter);
         //==========================================================================================
         //Receives Bundle From the Adapter so it can send it to Upload_Workplace fragment
         System.out.println("Hello from Workplace Fragment");
@@ -67,7 +67,6 @@ public class MyCovidData_WorkPlace extends Fragment {
             Bundle response_to_update = (Bundle) getArguments().get("ARG_FOR_UPDATEWORKPLACE");
             System.out.println("New Response: " + response.get("CLICKED"));
             System.out.println("New Response to update: " + response_to_update.get("WORKPLACE"));
-            listView.setVisibility(View.GONE);
             //Handles something
             if((boolean) response.get("CLICKED")){
                 MyCovidData_UpdateWorkplace updateclasses = new MyCovidData_UpdateWorkplace(); // Fragmnet that is replacing the current fragment

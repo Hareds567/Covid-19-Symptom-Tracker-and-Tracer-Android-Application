@@ -27,7 +27,6 @@ public class ProgramAdapter extends ArrayAdapter<String> {
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
-        parent.setVisibility(View.VISIBLE);
         View singleItem = convertView;
         ProgramViewHolder holder = null;
         if(singleItem == null) {
@@ -44,8 +43,6 @@ public class ProgramAdapter extends ArrayAdapter<String> {
 
         holder.programTitle.setText(programName[position]);
 
-
-        boolean result = true;
         singleItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
