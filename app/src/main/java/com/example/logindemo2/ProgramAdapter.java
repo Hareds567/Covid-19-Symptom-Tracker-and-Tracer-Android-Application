@@ -27,7 +27,7 @@ public class ProgramAdapter extends ArrayAdapter<String> {
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
-
+        parent.setVisibility(View.VISIBLE);
         View singleItem = convertView;
         ProgramViewHolder holder = null;
         if(singleItem == null) {
@@ -44,6 +44,8 @@ public class ProgramAdapter extends ArrayAdapter<String> {
 
         holder.programTitle.setText(programName[position]);
 
+
+        boolean result = true;
         singleItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -72,13 +74,10 @@ public class ProgramAdapter extends ArrayAdapter<String> {
                 MyCovidData_UpdateWorkplace.setArguments(superBundle); //Sets the arguments containing both bundles;
                 workplace.setArguments(superBundle);
                 FragmentManager fragmentManager = activity.getSupportFragmentManager();
-
                 fragmentManager.beginTransaction().replace(R.id.nav_host_fragment,workplace, workplace.getTag()).commit();
-
+                parent.setVisibility(View.GONE);
             }
         });
-
-
         return singleItem;
     }
 }

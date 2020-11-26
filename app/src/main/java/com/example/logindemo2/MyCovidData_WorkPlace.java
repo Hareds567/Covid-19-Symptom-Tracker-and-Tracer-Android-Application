@@ -74,13 +74,8 @@ public class MyCovidData_WorkPlace extends Fragment {
                 updateclasses.setArguments(response_to_update);// Set the arguments containing the name of the workplace
                 FragmentManager fragment = getFragmentManager(); //creates a fragment manager to start communication
                 fragment.beginTransaction().replace(R.id.nav_host_fragment, updateclasses,updateclasses.getTag()).commit(); //Sends the information and replace the current fragment
-
-
-
             }
         }
-
-
         return root;
     }
 }

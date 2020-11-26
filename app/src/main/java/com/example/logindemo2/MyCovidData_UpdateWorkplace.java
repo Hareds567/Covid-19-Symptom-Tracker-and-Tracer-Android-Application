@@ -142,7 +142,9 @@ public class MyCovidData_UpdateWorkplace extends Fragment {
             @Override
             public void onClick(View view) {
                 MyCovidData_WorkPlace workplace = new MyCovidData_WorkPlace();
+                root.setVisibility(View.GONE);
                 fragmentManager.beginTransaction().replace(R.id.nav_host_fragment, workplace, workplace.getTag()).commit();
+
 
             }
         });
