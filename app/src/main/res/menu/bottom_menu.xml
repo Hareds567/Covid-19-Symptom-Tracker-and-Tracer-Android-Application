@@ -5,16 +5,16 @@
         android:id="@+id/covidData"
         android:icon="@drawable/ic_covid_data_bottom"
         android:iconTint="#F4511E"
+
         android:title="COVID DATA" />
     <item
         android:id="@+id/myCovidData"
         android:icon="@drawable/ic_my_covid_data_bottom"
-        android:iconTint="#F4511E"
+        android:iconTint="#CA00FF"
         android:title="MY COVID DATA" />
     <item
         android:id="@+id/appSettings"
         android:icon="@drawable/ic_app_settings_bottom"
         android:iconTint="#F4511E"
-        android:iconTintMode="src_over"
         android:title="APP SETTINGS" />
 </menu>
