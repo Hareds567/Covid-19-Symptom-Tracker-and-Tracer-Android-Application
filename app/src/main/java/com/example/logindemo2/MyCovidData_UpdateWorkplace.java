@@ -122,11 +122,14 @@ public class MyCovidData_UpdateWorkplace extends Fragment {
         //Get the workplace selected from the list view of workplaces and fix visibility of UI elements
         //Handles can the user select a new workplace
         if (getArguments() != null) {
+            System.out.println("New Arguments: " + getArguments());
+            String response = (String) getArguments().get("WORKPLACE");
+            System.out.println("New Response: " + response);
             //handles UI
             addWorkplace_btn.setVisibility(View.VISIBLE);
             cancelWorkplace_btn.setVisibility(View.VISIBLE);
             //set workplace
-            workplace_tobe_added = (String) getArguments().get("WORKPLACE");
+            workplace_tobe_added = response;
             addWorkplace_TextV.setText(workplace_tobe_added);
             System.out.println("When argument is not null, Workplace: " + workplace_tobe_added);
         }
