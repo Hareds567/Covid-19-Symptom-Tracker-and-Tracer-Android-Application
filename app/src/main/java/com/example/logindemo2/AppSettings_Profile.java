@@ -21,7 +21,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
 
-public class AppSetting_MyCovidData extends Fragment {
+public class AppSettings_Profile extends Fragment {
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -39,12 +39,12 @@ public class AppSetting_MyCovidData extends Fragment {
     private TextView email_TextView;
     private TextView userName_TextView;
 
-    public AppSetting_MyCovidData() {
+    public AppSettings_Profile() {
         // Required empty public constructor
     }
 
-    public static AppSetting_MyCovidData newInstance(String param1, String param2) {
-        AppSetting_MyCovidData fragment = new AppSetting_MyCovidData();
+    public static AppSettings_Profile newInstance(String param1, String param2) {
+        AppSettings_Profile fragment = new AppSettings_Profile();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -64,10 +64,8 @@ public class AppSetting_MyCovidData extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        final View rootView = inflater.inflate(R.layout.fragment_my_covid_data__app_setting, container, false);
-        // Inflate the layout for this fragment
-        gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
-        mGoogleSignInClient = GoogleSignIn.getClient(getActivity(), gso);
+        final View rootView = inflater.inflate(R.layout.fragment_app_settings_profile, container, false);
+        //Get User Account
         GoogleSignInAccount acc = GoogleSignIn.getLastSignedInAccount(getActivity());
         //Setting up UI elements
         signOut_Btn = rootView.findViewById(R.id.Sign_out_Button_Setting);

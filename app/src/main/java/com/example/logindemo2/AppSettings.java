@@ -25,6 +25,7 @@ public class AppSettings extends Fragment {
     private Button myCovidData_Btn;
     private Button updateInfo_Btn;
     private Button helpImprove_btn;
+    private Button privacyPolicy_btn;
 
     public AppSettings() {
         // Required empty public constructor
@@ -57,25 +58,33 @@ public class AppSettings extends Fragment {
         //Connect Buttons and their xml content using ID
         myCovidData_Btn = rootView.findViewById(R.id.myCovidData_Btn);
         helpImprove_btn = rootView.findViewById(R.id.helpImprove_btn);
+        privacyPolicy_btn = rootView.findViewById(R.id.privacyPolicy_btn);
 
         //Set click listeners for buttons: When a button gets clicked do something that is inside the onclick method
         myCovidData_Btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AppSetting_MyCovidData myCovidDataFragment = new AppSetting_MyCovidData();
+                AppSettings_Profile myCovidDataFragment = new AppSettings_Profile();
                 FragmentManager manager = getFragmentManager();
                 manager.beginTransaction().replace(R.id.nav_host_fragment, myCovidDataFragment, myCovidDataFragment.getTag()).commit();
             }
         });
 
-
-
         helpImprove_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SubmitFeedback_Setting submitFeedback_setting = new SubmitFeedback_Setting();
+                AppSettings_SubmitFeedback app_settingSubmitFeedback = new AppSettings_SubmitFeedback();
                 FragmentManager manager = getFragmentManager();
-                manager.beginTransaction().replace(R.id.nav_host_fragment, submitFeedback_setting, submitFeedback_setting.getTag()).commit();
+                manager.beginTransaction().replace(R.id.nav_host_fragment, app_settingSubmitFeedback, app_settingSubmitFeedback.getTag()).commit();
+            }
+        });
+
+        privacyPolicy_btn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                AppSettings_PrivacyPolicy appSettingsPolicy = new  AppSettings_PrivacyPolicy();
+                FragmentManager manager = getFragmentManager();
+                manager.beginTransaction().replace(R.id.nav_host_fragment, appSettingsPolicy, appSettingsPolicy.getTag()).commit();
             }
         });
         //build the view

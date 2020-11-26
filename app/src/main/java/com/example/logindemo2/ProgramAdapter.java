@@ -1,6 +1,7 @@
 package com.example.logindemo2;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 
 public class ProgramAdapter extends ArrayAdapter<String> {
     Context context;
@@ -43,6 +46,20 @@ public class ProgramAdapter extends ArrayAdapter<String> {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getContext(), "You clicked" + programName[position], Toast.LENGTH_SHORT).show();
+                String test = programName[position];
+
+                AppCompatActivity activity = (AppCompatActivity) view.getContext();
+                MyCovidData_UpdateWorkplace MyCovidData_UpdateWorkplace = new MyCovidData_UpdateWorkplace();
+                Bundle arguments = new Bundle();
+
+                arguments.putString("WORKPLACE", test);
+
+                System.out.println("Program Adapter Workplace: " + test);
+                System.out.println("Arguments from the Program Adapter: " + arguments);
+                MyCovidData_UpdateWorkplace.setArguments(arguments);
+                FragmentManager fragmentManager = activity.getSupportFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.nav_host_fragment,MyCovidData_UpdateWorkplace, MyCovidData_UpdateWorkplace.getTag()).addToBackStack(null).commit();
+
             }
         });
 

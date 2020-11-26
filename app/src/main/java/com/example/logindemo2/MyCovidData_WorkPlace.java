@@ -9,13 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link MyCovidData_WorkPlace#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class MyCovidData_WorkPlace extends Fragment {
 
+public class MyCovidData_WorkPlace extends Fragment {
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -24,7 +19,7 @@ public class MyCovidData_WorkPlace extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    ListView lvProgram;
+    ListView listView;
     String[] workplaces = {"Scales Hall" , "Waterbury Hall", "Sheldon Hall", "Hart Hall", "Riggs Hall",
             "Johnson Hall", "Oneida Hall", "Seneca Hall", "Onondaga Hall", "Cayuga Hall", "Shineman Center", "Marano Campus Center", "Wilbur Hall", "Park Hall", "Penfield Library",
             "Hewitt Union", "Mahar Hall", "Lanigan Hall", "Cooper Dining Center", "Lakeside Dining Center", "Littlepage Dining Center",
@@ -57,10 +52,10 @@ public class MyCovidData_WorkPlace extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        final View root = inflater.inflate(R.layout.fragment_work_place__my_covid_data, container, false);
-        lvProgram = root.findViewById(R.id.lvProgram);
+        final View root = inflater.inflate(R.layout.fragment_my_covid_data_work_place, container, false);
+        listView = root.findViewById(R.id.lvProgram);
         ProgramAdapter programAdapater = new ProgramAdapter(getActivity(), workplaces);
-        lvProgram.setAdapter(programAdapater);
+        listView.setAdapter(programAdapater);
         return root;
     }
 }

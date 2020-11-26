@@ -20,13 +20,11 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.regex.Matcher;
@@ -39,16 +37,16 @@ public class MyCovidData_MySocialCircle extends Fragment {
     private final String postSocialUrl = "https://covidtrackerdev.herokuapp.com/post_social_circle";
     private final String postWorkplace = "https://covidtrackerdev.herokuapp.com/post_workplace";
     private CheckBox box1;
-    CheckBox box2;
-    CheckBox box3;
-    CheckBox box4;
-    CheckBox box5;
-    CheckBox box6;
-    CheckBox box7;
-    CheckBox box8;
-    CheckBox box9;
+    private CheckBox box2;
+    private CheckBox box3;
+    private CheckBox box4;
+    private CheckBox box5;
+    private CheckBox box6;
+    private CheckBox box7;
+    private CheckBox box8;
+    private CheckBox box9;
     private Button remove;
-    Button add;
+    private Button add;
     private TextView newGmail;
     private ArrayList<String> gmails = new ArrayList<>();
     private ArrayList<CheckBox> DisplayedBoxes = new ArrayList<>();
@@ -70,7 +68,7 @@ public class MyCovidData_MySocialCircle extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        final View screen = inflater.inflate(R.layout.fragment_my_social_circle__my_covid_data, container, false);
+        final View screen = inflater.inflate(R.layout.fragment_my_covid_data_my_social_circle, container, false);
         box1 = screen.findViewById(R.id.checkBox);
         box2 = screen.findViewById(R.id.checkBox2);
         box3 = screen.findViewById(R.id.checkBox3);
@@ -155,7 +153,6 @@ public class MyCovidData_MySocialCircle extends Fragment {
                     queue.add(updateSocial());
                     displayEmails(gmails);
                 }
-                //queue.add(updateworkplace());
             }
         });
         //==========================================================================================
@@ -176,40 +173,9 @@ public class MyCovidData_MySocialCircle extends Fragment {
                 displayEmails(gmails);
             }
         });
-
         return screen;
     }
     //==============================================================================================
-    //
-
-
-    //==============================================================================================
-    public JsonObjectRequest updateworkplace() {
-        JSONObject o = new JSONObject();
-        try {
-            o.put("WorkUser", Gmail);
-            o.put("Workplace", "php");
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        System.out.println("test");
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, postWorkplace,
-                o, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                System.out.println(response.toString());
-                System.out.println("Sus");
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getActivity(), "Unable to get Social Circle", Toast.LENGTH_LONG);
-            }
-        });
-        return jsonObjectRequest;
-    }
-
-
     // Update Social Circle
     public JsonObjectRequest updateSocial() {
         JSONObject o = new JSONObject();
@@ -239,7 +205,6 @@ public class MyCovidData_MySocialCircle extends Fragment {
         return jsonObjectRequest;
 
     }
-
 
     public void displayEmails(ArrayList<String> emails) {
         for (int i = 0; i < emails.size(); i++) {

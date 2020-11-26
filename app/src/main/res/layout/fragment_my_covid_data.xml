@@ -7,6 +7,25 @@
     android:background="@drawable/ic_background"
     tools:context=".MyCovidData">
 
+    <Button
+        android:id="@+id/uploadClasses_btn"
+        android:layout_width="347dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="40dp"
+        android:background="#FAF1E4"
+        android:drawableLeft="@drawable/ic_my_covid_status"
+        android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
+        android:paddingLeft="24dp"
+        android:paddingRight="16dp"
+        android:text="Upload Class List"
+        android:textAllCaps="false"
+        android:textColor="#FF9800"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/myWorkplace_btn"
+        app:layout_constraintStart_toStartOf="@+id/myWorkplace_btn"
+        app:layout_constraintTop_toBottomOf="@+id/myWorkplace_btn" />
+
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="wrap_content"

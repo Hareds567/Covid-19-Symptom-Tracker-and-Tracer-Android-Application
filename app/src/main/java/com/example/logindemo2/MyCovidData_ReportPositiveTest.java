@@ -68,7 +68,7 @@ public class MyCovidData_ReportPositiveTest extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        final View rootView = inflater.inflate(R.layout.fragment_report_positive_test_my_covid_data, container, false);
+        final View rootView = inflater.inflate(R.layout.fragment_my_covid_data_report_positive_test, container, false);
         //=========================================================================================
         //Processes the google login
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();

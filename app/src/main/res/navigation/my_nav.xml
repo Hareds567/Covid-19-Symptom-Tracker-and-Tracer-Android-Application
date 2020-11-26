@@ -21,7 +21,7 @@
         android:id="@+id/myCovidData"
         android:name="com.example.logindemo2.MyCovidData"
         android:label="fragment_my_covid_data"
-        tools:layout="@layout/fragment_user_covid_data" >
+        tools:layout="@layout/fragment_my_covid_data" >
         <action
             android:id="@+id/action_myCovidData_to_appSettings2"
             app:destination="@id/appSettings" />

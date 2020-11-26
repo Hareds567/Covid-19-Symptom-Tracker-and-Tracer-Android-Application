@@ -52,7 +52,7 @@ public class MyCovidData_UpdateClasses extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        final View screen = inflater.inflate(R.layout.update_classes_fragment, container, false);
+        final View screen = inflater.inflate(R.layout.fragment_my_covid_data_update_classes, container, false);
         CIDS = new ArrayList<>();
         //==========================================================================================
         // Initalises starting variables

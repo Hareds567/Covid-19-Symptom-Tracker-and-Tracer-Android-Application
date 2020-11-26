@@ -1,5 +1,7 @@
 package com.example.logindemo2;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,39 +12,37 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link MyCovidData#newInstance} factory method to
- * create an instance of this fragment.
- */
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+
 public class MyCovidData extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private static final String WEBSITE_URL = "https://covidtrackerdev.herokuapp.com/";
+    private static Pattern VALID_EMAIL_ADDRESS_REGEX = Pattern.compile("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(oswego)\\.edu$") ;
+    private static Pattern VALID_FACULTY_EMAIL_ADDRESS_REGEX = Pattern.compile("[a-z0-9]+\\.[a-z0-9]*@(oswego)\\.edu$");
 
-    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
     private Button residenceHallData_Btn;
     private Button mySocialCircle_Btn;
     private Button classes_Btn;
     private Button workplace_Btn;
+    private Button uploadClassList_Btn;
+    private String userEmail;
 
     public MyCovidData() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment UserCovidData.
-     */
-    // TODO: Rename and change types and number of parameters
     public static MyCovidData newInstance(String param1, String param2) {
         MyCovidData fragment = new MyCovidData();
         Bundle args = new Bundle();
@@ -65,13 +65,22 @@ public class MyCovidData extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        final View rootView  = inflater.inflate(R.layout.fragment_user_covid_data, container, false);
+        final View rootView  = inflater.inflate(R.layout.fragment_my_covid_data, container, false);
+        //Get User Account
+        GoogleSignInAccount acc = GoogleSignIn.getLastSignedInAccount(getActivity());
+        userEmail = acc.getEmail();
 
         //Goes to ResidenceHallData_MyCovidData
         residenceHallData_Btn = rootView.findViewById(R.id.residenceHalldata_Btn);
         mySocialCircle_Btn = rootView.findViewById(R.id.mySocialCircle_Btn);
         classes_Btn = rootView.findViewById(R.id.classes_btn);
         workplace_Btn = rootView.findViewById(R.id.myWorkplace_btn);
+        uploadClassList_Btn = rootView.findViewById(R.id.uploadClasses_btn);
+
+
+        if(!validateProfessor(userEmail)){
+            uploadClassList_Btn.setVisibility(View.INVISIBLE);
+        }
 
         residenceHallData_Btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -109,6 +118,20 @@ public class MyCovidData extends Fragment {
                 fragmentManager.beginTransaction().replace(R.id.nav_host_fragment, MyCovidData_UpdateClasses, MyCovidData_UpdateClasses.getTag()).commit();
             }
         });
+
+        uploadClassList_Btn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(WEBSITE_URL));
+                startActivity(intent);
+            }
+        });
         return rootView;
+    }
+
+    private static boolean validateProfessor(String email){
+        Matcher matcher = VALID_FACULTY_EMAIL_ADDRESS_REGEX.matcher(email);
+        return matcher.find();
     }
 }
