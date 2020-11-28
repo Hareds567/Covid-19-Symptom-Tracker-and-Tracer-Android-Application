@@ -152,6 +152,7 @@ public class MyCovidData_MySocialCircle extends Fragment {
                     }
                     queue.add(updateSocial());
                     displayEmails(gmails);
+                    newGmail.setText("");
                 }
             }
         });

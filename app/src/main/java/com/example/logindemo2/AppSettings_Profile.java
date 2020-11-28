@@ -26,22 +26,13 @@ public class AppSettings_Profile extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-
-    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    private Button signOut_Btn;
 
-    private GoogleSignInAccount mGoogleSignInAccount;
-    private GoogleSignInOptions gso;
+    private GoogleSignInAccount acc;
     private GoogleSignInClient mGoogleSignInClient;
 
-    private TextView email_TextView;
-    private TextView userName_TextView;
-
-    public AppSettings_Profile() {
-        // Required empty public constructor
-    }
+    public AppSettings_Profile() { }
 
     public static AppSettings_Profile newInstance(String param1, String param2) {
         AppSettings_Profile fragment = new AppSettings_Profile();
@@ -66,11 +57,13 @@ public class AppSettings_Profile extends Fragment {
                              Bundle savedInstanceState) {
         final View rootView = inflater.inflate(R.layout.fragment_app_settings_profile, container, false);
         //Get User Account
-        GoogleSignInAccount acc = GoogleSignIn.getLastSignedInAccount(getActivity());
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
+        mGoogleSignInClient = GoogleSignIn.getClient(getActivity(),gso);
+        acc = GoogleSignIn.getLastSignedInAccount(getActivity());
         //Setting up UI elements
-        signOut_Btn = rootView.findViewById(R.id.Sign_out_Button_Setting);
-        email_TextView = rootView.findViewById(R.id.textView_Email);
-        userName_TextView = rootView.findViewById(R.id.textView_userName);
+        Button signOut_Btn = rootView.findViewById(R.id.Sign_out_Button_Setting);
+        TextView email_TextView = rootView.findViewById(R.id.textView_Email);
+        TextView userName_TextView = rootView.findViewById(R.id.textView_userName);
         //
         email_TextView.setText(acc.getEmail());
         userName_TextView.setText(acc.getDisplayName());

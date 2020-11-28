@@ -8,7 +8,9 @@ import androidx.fragment.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 
 public class MyCovidData_WorkPlace extends Fragment {
@@ -18,7 +20,7 @@ public class MyCovidData_WorkPlace extends Fragment {
 
     private String mParam1;
     private String mParam2;
-
+    private FragmentManager fragmentManager;
     ListView listView;
     String[] workplaces = {"Scales Hall" , "Waterbury Hall", "Sheldon Hall", "Hart Hall", "Riggs Hall",
             "Johnson Hall", "Oneida Hall", "Seneca Hall", "Onondaga Hall", "Cayuga Hall", "Shineman Center", "Marano Campus Center", "Wilbur Hall", "Park Hall", "Penfield Library",
@@ -51,15 +53,47 @@ public class MyCovidData_WorkPlace extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
         final View root = inflater.inflate(R.layout.fragment_my_covid_data_work_place, container, false);
+        fragmentManager = getFragmentManager();
+
+        //handles incoming information from other fragments
+        Bundle bundle = (Bundle) getArguments();
+        if(bundle != null) {
+
+            System.out.println("Tag from workplace: " + this.getTag());
+            System.out.println("Fragment from Workplace: \n" + fragmentManager.getFragments());
+            System.out.println("Workplace Arguments from the adapter: " + bundle);
+            System.out.println("Workplace Bundle from the adapter: " + bundle.get("WORKPLACE"));
+            MyCovidData_UpdateWorkplace updateWorkplace = new MyCovidData_UpdateWorkplace();
+            updateWorkplace.setArguments(bundle);
+            fragmentManager.beginTransaction().replace(R.id.nav_host_fragment, updateWorkplace ,updateWorkplace.getTag()).commit();
+        }
+
+
+
+        //inflates the view using the program adapter
         listView = root.findViewById(R.id.lvProgram);
         ProgramAdapter programAdapter = new ProgramAdapter(getActivity(), workplaces);
         listView.setAdapter(programAdapter);
-        //==========================================================================================
-        //Receives Bundle From the Adapter so it can send it to Upload_Workplace fragment
-        System.out.println("Hello from Workplace Fragment");
-        System.out.println("New Arguments: " + getArguments());
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                System.out.println("Test for onClick");
+                String workplace = (String) adapterView.getItemAtPosition(position);
+                if(workplace != null){
+                    Toast.makeText(getContext(), workplace, Toast.LENGTH_LONG).show();
+                    MyCovidData_UpdateWorkplace workPlace = new MyCovidData_UpdateWorkplace();
+                    Bundle bundle = new Bundle();
+                    bundle.putString("WORKPLACE", workplace);
+                    workPlace.setArguments(bundle);
+                    FragmentManager fragmentManager = getFragmentManager();
+                    fragmentManager.beginTransaction().replace(R.id.nav_host_fragment, workPlace, workPlace.getTag()).commit();
+                }
+            }
+
+        });
 
         return root;
     }

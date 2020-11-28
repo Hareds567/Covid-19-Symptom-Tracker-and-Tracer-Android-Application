@@ -27,8 +27,7 @@ public class MyCovidData extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private static final String WEBSITE_URL = "https://covidtrackerdev.herokuapp.com/";
-    private static Pattern VALID_EMAIL_ADDRESS_REGEX = Pattern.compile("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(oswego)\\.edu$") ;
-    private static Pattern VALID_FACULTY_EMAIL_ADDRESS_REGEX = Pattern.compile("[a-z0-9]+\\.[a-z0-9]*@(oswego)\\.edu$");
+    private static Pattern VALID_FACULTY_EMAIL_ADDRESS_REGEX = Pattern.compile("^[a-z0-9]+\\.[a-z0-9]+@(oswego)\\.edu$");
 
     private String mParam1;
     private String mParam2;
@@ -77,9 +76,8 @@ public class MyCovidData extends Fragment {
         workplace_Btn = rootView.findViewById(R.id.myWorkplace_btn);
         uploadClassList_Btn = rootView.findViewById(R.id.uploadClasses_btn);
 
-
         if(!validateProfessor(userEmail)){
-            uploadClassList_Btn.setVisibility(View.INVISIBLE);
+            uploadClassList_Btn.setVisibility(View.GONE);
         }
 
         residenceHallData_Btn.setOnClickListener(new View.OnClickListener() {

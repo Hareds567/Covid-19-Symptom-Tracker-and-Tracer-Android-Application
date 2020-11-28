@@ -44,9 +44,7 @@ public class MyCovidData_UpdateClasses extends Fragment {
     ArrayList<CheckBox> boxes;
     String Gmail;
     ArrayList<String> CIDS;
-    private static Pattern VALID_EMAIL_ADDRESS_REGEX = Pattern.compile("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(oswego)\\.edu$");
-    private static Pattern VALID_CRN_REGEX = Pattern.compile("^[A-Z]$");
-
+    private static Pattern VALID_CRN_REGEX = Pattern.compile("^[A-Z]{3}\\d{6}$");
 
 
     @Override
@@ -118,14 +116,25 @@ public class MyCovidData_UpdateClasses extends Fragment {
             @Override
             public void onClick(View v) {
                 String inputCrn = newClass.getText().toString();
-                if (CIDS.size() + 1 > 10) {
-                    Toast.makeText(getActivity(), "Class list is Full", Toast.LENGTH_LONG).show();
+                if(CIDS.contains(inputCrn)) {
+                    Toast.makeText(getActivity(), "The Class is Already in your List", Toast.LENGTH_LONG).show();
+                }else if (!validateCrn(inputCrn)) {
+                    Toast.makeText(getActivity(), "Please Add a valid CRN", Toast.LENGTH_LONG).show();
                 } else {
-                    if (CIDS.size() < 10) {
-                        CIDS.add(inputCrn);
+                    System.out.println("Class to be added: "+ inputCrn);
+                    if(inputCrn.contains("-")){
+
                     }
-                    queue.add(updateClasses());
-                    displayEmails(CIDS);
+                    if (CIDS.size() + 1 > 10) {
+                        Toast.makeText(getActivity(), "Class list is Full", Toast.LENGTH_LONG).show();
+                    } else {
+                        if (CIDS.size() < 10) {
+                            CIDS.add(inputCrn);
+                        }
+                        queue.add(updateClasses());
+                        displayEmails(CIDS);
+                        newClass.setText("");
+                    }
                 }
             }
         });
@@ -181,7 +190,6 @@ public class MyCovidData_UpdateClasses extends Fragment {
 
     }
 
-
     public void displayEmails(ArrayList<String> emails) {
         for (int i = 0; i < emails.size(); i++) {
             String s = emails.get(i);
@@ -189,11 +197,7 @@ public class MyCovidData_UpdateClasses extends Fragment {
         }
     }
 
-    public static boolean validateEmail(String email) {
-        Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(email);
-        return matcher.find();
-    }
-    public static boolean validateCrn(String crn){
+    public static boolean validateCrn(String crn) {
         Matcher matcher = VALID_CRN_REGEX.matcher(crn);
         return matcher.find();
     }

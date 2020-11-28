@@ -134,16 +134,18 @@ public class MyCovidData_UpdateWorkplace extends Fragment {
             addWorkplace_TextV.setText(workplace_tobe_added);
             System.out.println("When argument is not null, Workplace: " + workplace_tobe_added);
         }
-        System.out.println("Workplace: " + workplace);
+        System.out.println("Workplace from Update_Workplace fragment: " + workplace);
         //==========================================================================================
         //BUTTON ON_CLICK LISTENERS
         // Select the workplace to be updated or added
         selectWorkplace_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MyCovidData_WorkPlace workplace = new MyCovidData_WorkPlace();
+                MyCovidData_WorkPlace workplace = new MyCovidData_WorkPlace(); // go to workplace fragment
+                //CovidData covidData = new CovidData();
                 fragmentManager.beginTransaction().replace(R.id.nav_host_fragment, workplace, workplace.getTag()).addToBackStack(null).commit();
-               root.setVisibility(View.GONE);
+                System.out.println("Fragments:\n "+fragmentManager.getFragments());
+                root.setVisibility(View.GONE);
             }
         });
         //delete the WorkPlace
