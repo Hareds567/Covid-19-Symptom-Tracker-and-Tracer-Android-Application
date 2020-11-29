@@ -75,7 +75,7 @@
         android:layout_width="347dp"
         android:layout_height="60dp"
         android:layout_marginTop="32dp"
-        android:background="#FAF1E4"
+        android:background="#000000"
         android:drawableLeft="@drawable/ic_my_social_circle"
         android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
         android:paddingLeft="24dp"
