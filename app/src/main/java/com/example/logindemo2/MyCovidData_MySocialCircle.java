@@ -208,9 +208,17 @@ public class MyCovidData_MySocialCircle extends Fragment {
     }
 
     public void displayEmails(ArrayList<String> emails) {
+        int x = 0;
         for (int i = 0; i < emails.size(); i++) {
             String s = emails.get(i);
             DisplayedBoxes.get(i).setText(s);
+            x=i;
+        }
+        while(x<DisplayedBoxes.size()){
+            x++;
+            if(x<DisplayedBoxes.size()){
+                DisplayedBoxes.get(x).setText("");
+            }
         }
     }
 
