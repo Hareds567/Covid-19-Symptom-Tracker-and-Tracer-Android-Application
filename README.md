@@ -11,8 +11,8 @@ The application is meant to automatically notify users who have been in close co
    Double click the signingReport, SHA1 certificate code will pop up in "Run"
    Ex: 12:34:56:78:90:AB:CD:EF:12:34:56:78:90:AB:CD:EF:AA:BB:CC:DD
 - Get the credentials for Google API
-   Follow Google Step-by-Step instructions on how to get the Google API credentials.
+   - Follow Google Step-by-Step instructions on how to get the Google API credentials.
    https://developers.google.com/identity/sign-in/android/start developer
-   Once the JSON file containing the credentials is acquired put in inside the 'app' directory as 'credemtials.json'
+   - Once the JSON file containing the credentials is acquired put in inside the 'app' directory as 'credemtials.json'
 - Inside Android Studio download an Emulator that has an API level of 30
 - Run the application
