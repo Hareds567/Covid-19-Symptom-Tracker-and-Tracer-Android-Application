@@ -44,7 +44,7 @@ public class MyCovidData_UpdateClasses extends Fragment {
     ArrayList<CheckBox> boxes;
     String Gmail;
     ArrayList<String> CIDS;
-    private static Pattern VALID_CRN_REGEX = Pattern.compile("^[A-Z]{3}\\d{6}$");
+    private static Pattern VALID_CRN_REGEX = Pattern.compile("^[A-Z]{3}\\d{3}(HY1|HY2|HY3|HY4|HY5|\\d{3})$");
 
 
     @Override
@@ -115,7 +115,7 @@ public class MyCovidData_UpdateClasses extends Fragment {
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String inputCrn = newClass.getText().toString();
+                String inputCrn = newClass.getText().toString().toUpperCase();
                 if(CIDS.contains(inputCrn)) {
                     Toast.makeText(getActivity(), "The Class is Already in your List", Toast.LENGTH_LONG).show();
                 }else if (!validateCrn(inputCrn)) {

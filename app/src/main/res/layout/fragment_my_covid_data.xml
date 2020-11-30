@@ -11,7 +11,7 @@
         android:id="@+id/uploadClasses_btn"
         android:layout_width="347dp"
         android:layout_height="60dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="32dp"
         android:background="#FAF1E4"
         android:drawableLeft="@drawable/ic_my_covid_status"
         android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
@@ -22,9 +22,10 @@
         android:textColor="#FF9800"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/myWorkplace_btn"
-        app:layout_constraintStart_toStartOf="@+id/myWorkplace_btn"
-        app:layout_constraintTop_toBottomOf="@+id/myWorkplace_btn" />
+        app:layout_constraintEnd_toEndOf="@+id/residenceHalldata_Btn"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/residenceHalldata_Btn"
+        app:layout_constraintTop_toBottomOf="@+id/residenceHalldata_Btn" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -55,7 +56,7 @@
         android:id="@+id/classes_btn"
         android:layout_width="347dp"
         android:layout_height="60dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="32dp"
         android:background="#FAF1E4"
         android:drawableLeft="@drawable/ic_my_covid_status"
         android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
@@ -66,8 +67,8 @@
         android:textColor="#FF9800"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/mySocialCircle_Btn"
+        app:layout_constraintStart_toStartOf="@+id/mySocialCircle_Btn"
         app:layout_constraintTop_toBottomOf="@+id/mySocialCircle_Btn" />
 
     <Button
@@ -93,7 +94,7 @@
         android:id="@+id/residenceHalldata_Btn"
         android:layout_width="347dp"
         android:layout_height="60dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="32dp"
         android:background="#FAF1E4"
         android:drawableLeft="@drawable/ic_residence_hall"
         android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
@@ -104,15 +105,15 @@
         android:textColor="#FF9800"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/classes_btn" />
+        app:layout_constraintEnd_toEndOf="@+id/myWorkplace_btn"
+        app:layout_constraintStart_toStartOf="@+id/myWorkplace_btn"
+        app:layout_constraintTop_toBottomOf="@+id/myWorkplace_btn" />
 
     <Button
         android:id="@+id/myWorkplace_btn"
         android:layout_width="347dp"
         android:layout_height="60dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="32dp"
         android:background="#FAF1E4"
         android:drawableLeft="@drawable/ic_residence_hall"
         android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
@@ -123,7 +124,7 @@
         android:textColor="#FF9800"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/residenceHalldata_Btn" />
+        app:layout_constraintEnd_toEndOf="@+id/classes_btn"
+        app:layout_constraintStart_toStartOf="@+id/classes_btn"
+        app:layout_constraintTop_toBottomOf="@+id/classes_btn" />
 </androidx.constraintlayout.widget.ConstraintLayout>
