@@ -64,6 +64,7 @@ public class MyCovidData_ReportPositiveTest extends Fragment {
         super.onCreate(savedInstanceState);
 
     }
+
     //=============================================================================================
     //Set Up for the screen
     @Override
@@ -75,9 +76,9 @@ public class MyCovidData_ReportPositiveTest extends Fragment {
         //=========================================================================================
         //Processes the google login
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
-        mGoogleSignInClient = GoogleSignIn.getClient(getActivity(),gso);
+        mGoogleSignInClient = GoogleSignIn.getClient(getActivity(), gso);
         mGoogleSignInAccount = GoogleSignIn.getLastSignedInAccount(getActivity());
-        userGmail  = mGoogleSignInAccount.getEmail();
+        userGmail = mGoogleSignInAccount.getEmail();
 
         //==========================================================================================
         // sets up volley
@@ -86,7 +87,7 @@ public class MyCovidData_ReportPositiveTest extends Fragment {
 
         //sets up buttons and text fields
         PositiveRes = rootView.findViewById(R.id.radioButton3);
-        NegRes =  rootView.findViewById(R.id.radioButton4);
+        NegRes = rootView.findViewById(R.id.radioButton4);
         Confirm = rootView.findViewById(R.id.button6);
         LastRes = rootView.findViewById(R.id.textView11);
         options = rootView.findViewById(R.id.radioGroup);
@@ -100,14 +101,14 @@ public class MyCovidData_ReportPositiveTest extends Fragment {
             e.printStackTrace();
         }
         String requestAllowNewResult = allowed.toString();
-        BooleanRequest booleanRequest = new BooleanRequest(Request.Method.POST, get_isAllowed,requestAllowNewResult, new Response.Listener<Boolean>(){
+        BooleanRequest booleanRequest = new BooleanRequest(Request.Method.POST, get_isAllowed, requestAllowNewResult, new Response.Listener<Boolean>() {
             @Override
             public void onResponse(Boolean response) {
                 System.out.println("First Test Result Response: " + response);
                 success = response;
-                System.out.println("Inside Boolean Request: "+ success);
+                System.out.println("Inside Boolean Request: " + success);
             }
-        }, new Response.ErrorListener(){
+        }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 System.out.println("Error: " + error);
@@ -127,68 +128,68 @@ public class MyCovidData_ReportPositiveTest extends Fragment {
                     public void onClick(View v) {
 
 
-                            if (checkedId == R.id.radioButton3) {
-                                if(success) {
-                                    JSONObject jsonUserGmail = new JSONObject();
-                                    try {
-                                        jsonUserGmail.put("Email", userGmail);
-                                    } catch (JSONException e) {
-                                        e.printStackTrace();
-                                    }
-                                    //Post request to notify user's to user's social circle
-                                    JsonObjectRequest requestAlertSocial = new JsonObjectRequest(Request.Method.POST, sendAlertSocial,
-                                            jsonUserGmail, new Response.Listener<JSONObject>() {
-                                        @Override
-                                        public void onResponse(JSONObject response) {
-                                        }
-                                    }, new Response.ErrorListener() {
-                                        @Override
-                                        public void onErrorResponse(VolleyError error) {
-                                            Toast.makeText(getActivity(), "Unable to get Send Alert", Toast.LENGTH_LONG);
-                                        }
-                                    });
-                                    //Post request to notify user's classmates
-                                    JsonObjectRequest requestAlertCourse = new JsonObjectRequest(Request.Method.POST, sendAlertClass,
-                                            jsonUserGmail, new Response.Listener<JSONObject>() {
-                                        @Override
-                                        public void onResponse(JSONObject response) {
-                                        }
-                                    }, new Response.ErrorListener() {
-                                        @Override
-                                        public void onErrorResponse(VolleyError error) {
-                                            Toast.makeText(getActivity(), "Unable to get Send Alert", Toast.LENGTH_LONG);
-                                        }
-                                    });
-                                    //Post request to notify user's coo-workers.
-                                    JsonObjectRequest requestAlertWorkplace = new JsonObjectRequest(Request.Method.POST, sendAlertWorkplace,
-                                            jsonUserGmail, new Response.Listener<JSONObject>() {
-                                        @Override
-                                        public void onResponse(JSONObject response) {
-                                        }
-                                    }, new Response.ErrorListener() {
-                                        @Override
-                                        public void onErrorResponse(VolleyError error) {
-                                            Toast.makeText(getActivity(), "Unable to get Send Alert", Toast.LENGTH_LONG);
-                                        }
-                                    });
-
-                                    queue.add(requestAlertSocial);
-                                    queue.add(requestAlertCourse);
-                                    queue.add(requestAlertWorkplace);
-                                    queue.add(updateSelfReportModel());
-                                    MyCovidData_ReportPositiveTest currentFragment = new MyCovidData_ReportPositiveTest();
-                                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                                    fragmentTransaction.replace(R.id.nav_host_fragment, currentFragment,currentFragment.getTag());
-                                    fragmentTransaction.commit();
-                                    Toast.makeText(getActivity(), "Thank You for Submitting Your Test Results!", Toast.LENGTH_LONG);
-                                } else {
-                                    System.out.println("You already submitted a Positive Test Result");
-                                    Toast.makeText(getActivity(), "You already submitted a Positive Test Result", Toast.LENGTH_LONG);
+                        if (checkedId == R.id.radioButton3) {
+                            if (success) {
+                                JSONObject jsonUserGmail = new JSONObject();
+                                try {
+                                    jsonUserGmail.put("Email", userGmail);
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
                                 }
+                                //Post request to notify user's to user's social circle
+                                JsonObjectRequest requestAlertSocial = new JsonObjectRequest(Request.Method.POST, sendAlertSocial,
+                                        jsonUserGmail, new Response.Listener<JSONObject>() {
+                                    @Override
+                                    public void onResponse(JSONObject response) {
+                                    }
+                                }, new Response.ErrorListener() {
+                                    @Override
+                                    public void onErrorResponse(VolleyError error) {
+                                        Toast.makeText(getActivity(), "Unable to get Send Alert", Toast.LENGTH_LONG).show();
+                                    }
+                                });
+                                //Post request to notify user's classmates
+                                JsonObjectRequest requestAlertCourse = new JsonObjectRequest(Request.Method.POST, sendAlertClass,
+                                        jsonUserGmail, new Response.Listener<JSONObject>() {
+                                    @Override
+                                    public void onResponse(JSONObject response) {
+                                    }
+                                }, new Response.ErrorListener() {
+                                    @Override
+                                    public void onErrorResponse(VolleyError error) {
+                                        Toast.makeText(getActivity(), "Unable to get Send Alert", Toast.LENGTH_LONG).show();
+                                    }
+                                });
+                                //Post request to notify user's coo-workers.
+                                JsonObjectRequest requestAlertWorkplace = new JsonObjectRequest(Request.Method.POST, sendAlertWorkplace,
+                                        jsonUserGmail, new Response.Listener<JSONObject>() {
+                                    @Override
+                                    public void onResponse(JSONObject response) {
+                                    }
+                                }, new Response.ErrorListener() {
+                                    @Override
+                                    public void onErrorResponse(VolleyError error) {
+                                        Toast.makeText(getActivity(), "Unable to get Send Alert", Toast.LENGTH_LONG).show();
+                                    }
+                                });
+
+                                queue.add(requestAlertSocial);
+                                queue.add(requestAlertCourse);
+                                queue.add(requestAlertWorkplace);
+                                queue.add(updateSelfReportModel());
+                                Toast.makeText(getActivity(), "Thank You for Submitting Your Test Results!", Toast.LENGTH_LONG);
                             } else {
-                                //send neg
+                                System.out.println("You already submitted a Positive Test Result");
+                                Toast.makeText(getActivity(), "You already Submitted a Positive Test Result", Toast.LENGTH_LONG).show();
                             }
-                            Confirm.setVisibility(View.GONE);
+                        } else {
+                            //send neg
+                        }
+                        MyCovidData_ReportPositiveTest currentFragment = new MyCovidData_ReportPositiveTest();
+                        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                        fragmentTransaction.replace(R.id.nav_host_fragment, currentFragment, currentFragment.getTag());
+                        fragmentTransaction.commit();
+                        Confirm.setVisibility(View.GONE);
                     }
                 });
 
@@ -197,7 +198,7 @@ public class MyCovidData_ReportPositiveTest extends Fragment {
         return rootView;
     }
 
-    private JsonObjectRequest updateSelfReportModel(){
+    private JsonObjectRequest updateSelfReportModel() {
         JSONObject reportUser = new JSONObject();
         try {
             reportUser.put("ReportUser", userGmail);
@@ -209,7 +210,7 @@ public class MyCovidData_ReportPositiveTest extends Fragment {
             public void onResponse(JSONObject response) {
 
             }
-        }, new Response.ErrorListener(){
+        }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
 
