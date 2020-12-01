@@ -147,7 +147,7 @@
         android:layout_width="206dp"
         android:layout_height="48dp"
         android:layout_marginTop="8dp"
-        android:text="Select Members to Remove, then tap remove"
+        android:text="Select Classes to Remove, Then Tap Remove"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.268"
         app:layout_constraintStart_toStartOf="parent"

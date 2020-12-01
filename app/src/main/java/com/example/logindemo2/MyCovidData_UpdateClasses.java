@@ -116,13 +116,13 @@ public class MyCovidData_UpdateClasses extends Fragment {
             @Override
             public void onClick(View v) {
                 String inputCrn = newClass.getText().toString().toUpperCase();
-                if(CIDS.contains(inputCrn)) {
+                if (CIDS.contains(inputCrn)) {
                     Toast.makeText(getActivity(), "The Class is Already in your List", Toast.LENGTH_LONG).show();
-                }else if (!validateCrn(inputCrn)) {
+                } else if (!validateCrn(inputCrn)) {
                     Toast.makeText(getActivity(), "Please Add a valid CRN", Toast.LENGTH_LONG).show();
                 } else {
-                    System.out.println("Class to be added: "+ inputCrn);
-                    if(inputCrn.contains("-")){
+                    System.out.println("Class to be added: " + inputCrn);
+                    if (inputCrn.contains("-")) {
 
                     }
                     if (CIDS.size() + 1 > 10) {
@@ -191,9 +191,17 @@ public class MyCovidData_UpdateClasses extends Fragment {
     }
 
     public void displayEmails(ArrayList<String> emails) {
+        int x = 0;
         for (int i = 0; i < emails.size(); i++) {
             String s = emails.get(i);
             boxes.get(i).setText(s);
+            x = i;
+        }
+        while (x < boxes.size()) {
+            x++;
+            if (x < boxes.size()) {
+                boxes.get(x).setText("");
+            }
         }
     }
 

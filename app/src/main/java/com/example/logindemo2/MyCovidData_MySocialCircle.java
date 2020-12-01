@@ -176,6 +176,7 @@ public class MyCovidData_MySocialCircle extends Fragment {
         });
         return screen;
     }
+
     //==============================================================================================
     // Update Social Circle
     public JsonObjectRequest updateSocial() {
@@ -212,11 +213,11 @@ public class MyCovidData_MySocialCircle extends Fragment {
         for (int i = 0; i < emails.size(); i++) {
             String s = emails.get(i);
             DisplayedBoxes.get(i).setText(s);
-            x=i;
+            x = i;
         }
-        while(x<DisplayedBoxes.size()){
+        while (x < DisplayedBoxes.size()) {
             x++;
-            if(x<DisplayedBoxes.size()){
+            if (x < DisplayedBoxes.size()) {
                 DisplayedBoxes.get(x).setText("");
             }
         }

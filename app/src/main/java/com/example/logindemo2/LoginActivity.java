@@ -96,8 +96,8 @@ public class LoginActivity extends AppCompatActivity {
         try{
             mGoogleSignInAccount = completedTask.getResult(ApiException.class);
             if(!validateEmail(mGoogleSignInAccount.getEmail())){ //if email does not match the regex sign out and display a message on the screen
-                signOut();
                 Toast.makeText(this,"Please Login with the School Email", Toast.LENGTH_LONG).show();
+                signOut();
             }else{
                 goToHomeActivity();
             }

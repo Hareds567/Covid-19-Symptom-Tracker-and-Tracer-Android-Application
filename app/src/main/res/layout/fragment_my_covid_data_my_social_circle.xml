@@ -60,7 +60,7 @@
         android:layout_marginTop="8dp"
 
         android:layout_marginEnd="16dp"
-        android:text="Remove Selected"
+        android:text="Remove"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.538"
         app:layout_constraintStart_toEndOf="@+id/textView5"
@@ -133,7 +133,7 @@
         android:layout_width="225dp"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
-        android:text="Select Members to Remove, then tap remove"
+        android:text="Select Members to Remove, Then Tap Remove"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.258"
         app:layout_constraintStart_toStartOf="parent"
