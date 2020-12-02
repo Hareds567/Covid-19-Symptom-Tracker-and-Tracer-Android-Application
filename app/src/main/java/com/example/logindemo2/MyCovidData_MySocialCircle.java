@@ -34,8 +34,8 @@ import java.util.regex.Pattern;
 public class MyCovidData_MySocialCircle extends Fragment {
 
     private static Pattern VALID_EMAIL_ADDRESS_REGEX = Pattern.compile("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(oswego)\\.edu$");
-    private final String getSocialURL = "https://covidtrackerdev.herokuapp.com/get_social_circle";
-    private final String postSocialUrl = "https://covidtrackerdev.herokuapp.com/post_social_circle";
+    private static final String getSocialURL = "https://covidtrackerdev.herokuapp.com/get_social_circle";
+    private static final String postSocialUrl = "https://covidtrackerdev.herokuapp.com/post_social_circle";
 
     private CheckBox box1;
     private CheckBox box2;

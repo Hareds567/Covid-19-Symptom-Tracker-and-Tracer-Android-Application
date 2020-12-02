@@ -38,8 +38,8 @@ public class MyCovidData_UpdateClasses extends Fragment {
         return new MyCovidData_UpdateClasses();
     }
 
-    private final String postCourseList = "https://covidtrackerdev.herokuapp.com/post_courselist";
-    private final String getCourseList = "https://covidtrackerdev.herokuapp.com/get_courselist";
+    private static final String postCourseList = "https://covidtrackerdev.herokuapp.com/post_courselist";
+    private static final String getCourseList = "https://covidtrackerdev.herokuapp.com/get_courselist";
 
     private ArrayList<CheckBox> boxes;
     private String Gmail;
