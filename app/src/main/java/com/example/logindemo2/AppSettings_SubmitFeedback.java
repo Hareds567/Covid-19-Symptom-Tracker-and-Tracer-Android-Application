@@ -14,21 +14,18 @@ import android.widget.EditText;
 
 public class AppSettings_SubmitFeedback extends Fragment {
 
-
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    private EditText mEditTextTo;
     private EditText mEditTextSubject;
     private EditText mEditTextMessage;
+
     public AppSettings_SubmitFeedback() {
         // Required empty public constructor
     }
 
-    // TODO: Rename and change types and number of parameters
     public static AppSettings_SubmitFeedback newInstance(String param1, String param2) {
         AppSettings_SubmitFeedback fragment = new AppSettings_SubmitFeedback();
         Bundle args = new Bundle();
@@ -65,9 +62,10 @@ public class AppSettings_SubmitFeedback extends Fragment {
         });
         return root;
     }
+
     public void sendMail() {
 
-        String recipientList ="jowens4@oswego.edu";
+        String recipientList = "jowens4@oswego.edu";
         String[] recipients = recipientList.split(",");
         //person@gmail.com, person2@gmail.com
 
@@ -80,7 +78,7 @@ public class AppSettings_SubmitFeedback extends Fragment {
         intent.putExtra(Intent.EXTRA_TEXT, message);
 
         intent.setType("message/rfc822");
-        startActivity(Intent.createChooser(intent,"Choose an email client or else!"));
+        startActivity(Intent.createChooser(intent, "Choose an email client or else!"));
 
     }
 }

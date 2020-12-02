@@ -32,10 +32,11 @@ import java.util.regex.Pattern;
 
 
 public class MyCovidData_MySocialCircle extends Fragment {
+
     private static Pattern VALID_EMAIL_ADDRESS_REGEX = Pattern.compile("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(oswego)\\.edu$");
     private final String getSocialURL = "https://covidtrackerdev.herokuapp.com/get_social_circle";
     private final String postSocialUrl = "https://covidtrackerdev.herokuapp.com/post_social_circle";
-    private final String postWorkplace = "https://covidtrackerdev.herokuapp.com/post_workplace";
+
     private CheckBox box1;
     private CheckBox box2;
     private CheckBox box3;
@@ -52,16 +53,12 @@ public class MyCovidData_MySocialCircle extends Fragment {
     private ArrayList<CheckBox> DisplayedBoxes = new ArrayList<>();
     private String Gmail;
 
-
     public MyCovidData_MySocialCircle() {
-
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
     }
 
     @Override

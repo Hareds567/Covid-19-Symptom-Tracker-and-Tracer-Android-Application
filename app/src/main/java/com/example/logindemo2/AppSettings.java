@@ -13,12 +13,10 @@ import android.widget.Button;
 
 public class AppSettings extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
@@ -26,12 +24,12 @@ public class AppSettings extends Fragment {
     private Button updateInfo_Btn;
     private Button helpImprove_btn;
     private Button privacyPolicy_btn;
+    private Button licenses_btn;
 
     public AppSettings() {
         // Required empty public constructor
     }
 
-    // TODO: Rename and change types and number of parameters
     public static AppSettings newInstance(String param1, String param2) {
         AppSettings fragment = new AppSettings();
         Bundle args = new Bundle();
@@ -59,8 +57,17 @@ public class AppSettings extends Fragment {
         myCovidData_Btn = rootView.findViewById(R.id.myCovidData_Btn);
         helpImprove_btn = rootView.findViewById(R.id.helpImprove_btn);
         privacyPolicy_btn = rootView.findViewById(R.id.privacyPolicy_btn);
+        licenses_btn = rootView.findViewById(R.id.licenses_btn);
 
         //Set click listeners for buttons: When a button gets clicked do something that is inside the onclick method
+        licenses_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Licenses myCovidDataFragment = new Licenses();
+                FragmentManager manager = getFragmentManager();
+                manager.beginTransaction().replace(R.id.nav_host_fragment, myCovidDataFragment, myCovidDataFragment.getTag()).commit();
+            }
+        });
         myCovidData_Btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

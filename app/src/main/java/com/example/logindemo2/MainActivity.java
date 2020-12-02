@@ -44,13 +44,11 @@ public class MainActivity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
         BottomNavigationView mBottomNavigationView  = findViewById(R.id.bottomNavigationView);
-
         //Navigation Setup
         AppBarConfiguration appBarConfiguration  = new AppBarConfiguration.Builder(R.id.covidData, R.id.myCovidData, R.id.appSettings).build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         getSupportActionBar().hide();
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(mBottomNavigationView, navController);
-       // getActionBar().hide();
     }
 }

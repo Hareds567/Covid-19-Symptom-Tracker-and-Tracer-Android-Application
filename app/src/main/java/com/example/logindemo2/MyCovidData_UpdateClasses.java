@@ -38,12 +38,12 @@ public class MyCovidData_UpdateClasses extends Fragment {
         return new MyCovidData_UpdateClasses();
     }
 
-    final String postCourseList = "https://covidtrackerdev.herokuapp.com/post_courselist";
-    final String getCourseList = "https://covidtrackerdev.herokuapp.com/get_courselist";
+    private final String postCourseList = "https://covidtrackerdev.herokuapp.com/post_courselist";
+    private final String getCourseList = "https://covidtrackerdev.herokuapp.com/get_courselist";
 
-    ArrayList<CheckBox> boxes;
-    String Gmail;
-    ArrayList<String> CIDS;
+    private ArrayList<CheckBox> boxes;
+    private String Gmail;
+    private ArrayList<String> CIDS;
     private static Pattern VALID_CRN_REGEX = Pattern.compile("^[A-Z]{3}\\d{3}(HY1|HY2|HY3|HY4|HY5|\\d{3})$");
 
 

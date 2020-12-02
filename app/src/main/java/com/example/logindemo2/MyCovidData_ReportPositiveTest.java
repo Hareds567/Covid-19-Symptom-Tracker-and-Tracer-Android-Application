@@ -34,7 +34,6 @@ import org.json.JSONObject;
 public class MyCovidData_ReportPositiveTest extends Fragment {
     private final String get_isAllowed = "https://covidtrackerdev.herokuapp.com/get_allowed_to_report";
     private final String post_self_report = "https://covidtrackerdev.herokuapp.com/post_self_report";
-
     private final String sendAlertSocial = "https://covidtrackerdev.herokuapp.com/post_send_alert";
     private final String sendAlertClass = "https://covidtrackerdev.herokuapp.com/post_class_alert";
     private final String sendAlertWorkplace = "https://covidtrackerdev.herokuapp.com/post_alert_workplace";
