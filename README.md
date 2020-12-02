@@ -1,6 +1,6 @@
 # COVID-19 Symptom Tracker & Tracer Andriod Application
 The application is meant to automatically notify users who have been in close contact with users that have tested positive for COVID-19
-## Instalation
+## Installation
 **Step 1** </br>
 Clone the Android GitHub repository</br>
 
