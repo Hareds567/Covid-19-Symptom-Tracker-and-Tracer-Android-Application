@@ -1,8 +1,10 @@
 # COVID-19 Symptom Tracker & Tracer Andriod Application
 The application is meant to automatically notify users who have been in close contact with users that have tested positive for COVID-19
 ## Instalation
-**Step 1:** Clone the Android GitHub repository</br>
-**Step 2:** Open the recently acquired code from Github and get the Package Name and SHA-1 signing certificate </br>
+**Step 1:** </br>
+Clone the Android GitHub repository</br>
+**Step 2:**</br>
+Open the recently acquired code from Github and get the Package Name and SHA-1 signing certificate </br>
    - The package name should appear in the first line of Every Activity/Fragment/Java class
         - Ex: com.example
    - To get the SHA-1 signing certificate look at the top-right margin of Android Studio and click Gradle.
@@ -11,13 +13,15 @@ The application is meant to automatically notify users who have been in close co
         - Ex: 12:34:56:78:90:AB:CD:EF:12:34:56:78:90:AB:CD:EF:AA:BB:CC:DD
 
 
-**Step 3:** Get the credentials for Google API
+**Step 3:** </br>
+Get the credentials for Google API
    - Follow Google Step-by-Step instructions on how to get the Google API credentials as a JSON file using the Package Name the SHA-1 certificate.
    https://developers.google.com/identity/sign-in/android/start
    - Once the JSON file containing the credentials is acquired put in inside the 'app' directory as 'credentials.json'
 
 
-**Step 4:** Update POST and GET request based on the new domain in the following Fragments (Replace **localhost:300** with a new domain such as **covidtrackerdev.herokuapp**)
+**Step 4:**</br>
+Update POST and GET request based on the new domain in the following Fragments (Replace **localhost:300** with a new domain such as **covidtrackerdev.herokuapp**)
 MyCovidData_MySocialCircle
 ```
 private static final String getSocialURL = "https://localhost:3000/get_social_circle";
