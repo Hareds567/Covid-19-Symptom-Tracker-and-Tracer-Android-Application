@@ -14,33 +14,33 @@ The application is meant to automatically notify users who have been in close co
    - Follow Google Step-by-Step instructions on how to get the Google API credentials as a JSON file using the Package Name the SHA-1 certificate.
    https://developers.google.com/identity/sign-in/android/start
    - Once the JSON file containing the credentials is acquired put in inside the 'app' directory as 'credentials.json'
-- Update POST and GET request based on the new domain in the following Fragments (Replace **localhost:300** with a new domain such as **covidtrackerdev.herokuapp"")
+- Update POST and GET request based on the new domain in the following Fragments (Replace **localhost:300** with a new domain such as **covidtrackerdev.herokuapp**)
    - MyCovidData_MySocialCircle
-      '''
-        private final String getSocialURL = "https://localhost:3000/get_social_circle";
-        private final String postSocialUrl = "https://localhost:3000/post_social_circle";
-      '''
+```
+private final String getSocialURL = "https://localhost:3000/get_social_circle";
+private final String postSocialUrl = "https://localhost:3000/post_social_circle";
+```
    - MyCovidData_ReportPositiveTest
-      '''
-        private final String get_isAllowed = "https://localhost:3000/get_allowed_to_report";
-        private final String post_self_report = "https://localhost:3000/post_self_report";
-        private final String sendAlertSocial = "https://localhost:3000/post_send_alert";
-        private final String sendAlertClass = "https://localhost:3000/post_class_alert";
-        private final String sendAlertWorkplace = "https://localhost:3000/post_alert_workplace";
-      '''
+```
+private final String get_isAllowed = "https://localhost:3000/get_allowed_to_report";
+private final String post_self_report = "https://localhost:3000/post_self_report";
+private final String sendAlertSocial = "https://localhost:3000/post_send_alert";
+private final String sendAlertClass = "https://localhost:3000/post_class_alert";
+private final String sendAlertWorkplace = "https://localhost:3000/post_alert_workplace";
+```
    - MyCovidData_UpdateClasses
-      '''
-        private final String postCourseList = "https://localhost:3000/post_courselist";
-        private final String getCourseList = "https://localhost:3000/get_courselist";
-      '''
+```
+private final String postCourseList = "https://localhost:3000/post_courselist";
+private final String getCourseList = "https://localhost:3000/get_courselist";
+```
    - MyCovidData_UpdateWorkplace
-      '''
-        private static final String get_Workplace = "https://localhost:3000/get_workplace";
-        private static final String post_Workplace = "https://http://localhost:3000/post_workplace";
-      '''
+```
+private static final String get_Workplace = "https://localhost:3000/get_workplace";
+private static final String post_Workplace = "https://http://localhost:3000/post_workplace";
+```
 - Update the WEBSITE_URL at MyCovidData fragmnet
-'''
-  private static final String WEBSITE_URL = "https://your_new_domain.com/";
-'''
+```
+private static final String WEBSITE_URL = "https://your_new_domain.com/";
+```
 - Inside Android Studio download an Emulator that has an API level of 30 or higher
 - Run the application
